@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="infinitescroll.frosquivel.com.infinitescroll.MainActivity">
+    tools:context="infinitescroll.frosquivel.com.infinitescroll.MainActivity"
+    android:background="@color/colorWhite">
 
 <ListView
     android:id="@+id/listView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"></ListView>
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"></ListView>
 
 </android.support.constraint.ConstraintLayout>

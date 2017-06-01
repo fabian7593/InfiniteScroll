@@ -17,19 +17,30 @@ public class InfiniteScrollObject {
     // True if we are still waiting for the last set of data to load.
     private boolean loading;
 
+    private int isFinalItem;
+
     private ProgressBar progressBar;
 
     private int firstVisibleItem, visibleItemCount, totalItemCount;
 
     public InfiniteScrollObject(){
         this.minimunNumberRowLoadingMore = 3;
-        this.currentPage = -1;
+        this.currentPage = 0;
         this.previousTotalItemCount = 0;
         this.loading = true;
         this.progressBar = null;
         this.firstVisibleItem = 0;
         this.visibleItemCount = 0;
         this.totalItemCount = 0;
+        this.isFinalItem = 1;
+    }
+
+    public int getFinalItem() {
+        return isFinalItem;
+    }
+
+    public void setFinalItem(int finalItem) {
+        isFinalItem = finalItem;
     }
 
     public ProgressBar getProgressBar() {

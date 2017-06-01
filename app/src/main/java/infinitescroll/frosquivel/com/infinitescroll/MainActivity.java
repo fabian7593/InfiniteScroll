@@ -20,7 +20,7 @@ import infinitescroll.frosquivel.com.infinitescroll.App.Utilities.ResponseModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    private InfiniteScrollAdapter adapter;
+    public InfiniteScrollAdapter adapter;
     private List<Object> objectList;
     private final int numberOfRequest = 10;
     private ProgressBar progressBar;
@@ -40,26 +40,26 @@ public class MainActivity extends AppCompatActivity {
         lvItems.addFooterView(footer);
 
         InfiniteScrollObject infiniteScrollObject = new InfiniteScrollObject();
-        infiniteScrollObject.setCurrentPage(-1);
+        infiniteScrollObject.setCurrentPage(0);
         infiniteScrollObject.setMinimunNumberRowLoadingMore(3);
+        infiniteScrollObject.setProgressBar(progressBar);
 
         lvItems.setOnScrollListener(new InfiniteScrollCallRequest(infiniteScrollObject) {
             @Override
-            public boolean onLoadMoreData(int page, int totalItemsCount, ListView view) {
-                return ((resquestAPI(page).size() != 0)?  true :  false);
+            public int onLoadMoreData(int page, int totalItemsCount, ListView view) {
+                return resquestAPI(page);
             }
         });
 
-        resquestAPI(-1);
+        resquestAPI(1);
     }
 
-    public List<Country> resquestAPI(final int offset) {
+    public int resquestAPI(final int offset) {
 
         InfiniteScrollInterface interfaceInfinite = new InfiniteScrollImpl() {
             @Override
             public void onSuccess(Object responseModel) {
                 MainActivity.responseModel = (ResponseModel) responseModel;
-
 
                 if(adapter != null){
                     //if you need update the list view and your respective data
@@ -92,7 +92,10 @@ public class MainActivity extends AppCompatActivity {
                         String.valueOf(offset),
                 this, interfaceInfinite);
 
-        return responseModel.getResponse();
+        if(responseModel!=null)
+            return responseModel.getResponse().size();
+        else
+            return 0;
 
     }
 }
