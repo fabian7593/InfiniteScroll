@@ -1,10 +1,12 @@
 package frosquivel.com.infinitescroll.Logic;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
 import frosquivel.com.infinitescroll.Model.InfiniteScrollObject;
+import frosquivel.com.infinitescroll.Utils.InfiniteScrollUtil;
 
 /**
  * Created by Fabian on 02/06/2017.
@@ -16,9 +18,9 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
     //int of value scroll state changes
     private static int scrollStatusCount;
 
-    public InfiniteScrollCallRequest() {
+    public InfiniteScrollCallRequest(Activity activity) {
         scrollStatusCount=0;
-        this.infiniteScrollObject = new InfiniteScrollObject();
+        this.infiniteScrollObject = new InfiniteScrollObject(activity);
     }
 
     /**
@@ -35,10 +37,10 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
      * @param currentPage
      * @param minimunNumberRowLoadingMore
      */
-    public InfiniteScrollCallRequest(int currentPage, int minimunNumberRowLoadingMore) {
+    public InfiniteScrollCallRequest(Activity activity, int currentPage, int minimunNumberRowLoadingMore) {
         scrollStatusCount=0;
-        this.infiniteScrollObject = new InfiniteScrollObject();
-        this.infiniteScrollObject.setCurrentPage(currentPage);
+        this.infiniteScrollObject = new InfiniteScrollObject(activity);
+        this.infiniteScrollObject.setCurrentPage(currentPage, false);
         this.infiniteScrollObject.setMinimunNumberRowLoadingMore(minimunNumberRowLoadingMore);
     }
 
@@ -49,53 +51,56 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
     {
-        //item that the user view
-        this.infiniteScrollObject.setFirstVisibleItem(firstVisibleItem);
-        //number of items view
-        this.infiniteScrollObject.setVisibleItemCount(visibleItemCount);
-        //all the items
-        this.infiniteScrollObject.setTotalItemCount(totalItemCount);
+        if(InfiniteScrollUtil.isNetworkAvailable(infiniteScrollObject.getActivity())) {
+            //item that the user view
+            this.infiniteScrollObject.setFirstVisibleItem(firstVisibleItem);
+            //number of items view
+            this.infiniteScrollObject.setVisibleItemCount(visibleItemCount);
+            //all the items
+            this.infiniteScrollObject.setTotalItemCount(totalItemCount);
 
-        if (totalItemCount < this.infiniteScrollObject.getPreviousTotalItemCount()) {
-            this.infiniteScrollObject.setCurrentPage(0);
-            this.infiniteScrollObject.setPreviousTotalItemCount(totalItemCount);
+            if (totalItemCount < this.infiniteScrollObject.getPreviousTotalItemCount()) {
+                this.infiniteScrollObject.setCurrentPage(0, false);
+                this.infiniteScrollObject.setPreviousTotalItemCount(totalItemCount);
 
-            //if not have data, every time shown loading progress
-            if (totalItemCount == 0) {
-                this.infiniteScrollObject.setLoading(true);
+                //if not have data, every time shown loading progress
+                if (totalItemCount == 0) {
+                    this.infiniteScrollObject.setLoading(true);
+                }
+            }
+
+            //is items is more that totalItemCount and not have loading more data
+            //obtain the size of the last request and set the value of new loading
+            int size = 0;
+            if (!this.infiniteScrollObject.isLoading() &&
+                    (firstVisibleItem + visibleItemCount + this.infiniteScrollObject.getMinimunNumberRowLoadingMore())
+                            >= totalItemCount) {
+
+                size = onLoadMoreData(
+                        this.infiniteScrollObject.getCurrentPage() + 1, totalItemCount, (ListView) view);
+                //set false if not have data or list have 0 items
+                this.infiniteScrollObject.setLoading((size > 0) ? true : false);
+            }
+
+            //Hide or show the progress bar if is loading data or not
+            if (this.infiniteScrollObject.getProgressBar() != null) {
+                this.infiniteScrollObject.getProgressBar().setVisibility(
+                        this.infiniteScrollObject.isLoading() ? View.VISIBLE : View.GONE);
+            }
+
+            if(InfiniteScrollUtil.isNetworkAvailable(infiniteScrollObject.getActivity())) {
+                //if is loading and total new items is more than previous total items
+                //set loading, sum one page to current page
+                if (this.infiniteScrollObject.isLoading() && (totalItemCount > this.infiniteScrollObject.getPreviousTotalItemCount())) {
+                    this.infiniteScrollObject.setLoading(false);
+                    this.infiniteScrollObject.setPreviousTotalItemCount(totalItemCount);
+                    this.infiniteScrollObject.setCurrentPage(this.infiniteScrollObject.getCurrentPage() + 1, false);
+                    //if the status is state fling gone the progress bar
+                } else if (scrollStatusCount == SCROLL_STATE_FLING) {
+                    goneProgressBar();
+                }
             }
         }
-
-        //is items is more that totalItemCount and not have loading more data
-        //obtain the size of the last request and set the value of new loading
-        int size = 0;
-        if (!this.infiniteScrollObject.isLoading() &&
-                (firstVisibleItem + visibleItemCount + this.infiniteScrollObject.getMinimunNumberRowLoadingMore())
-                        >= totalItemCount ) {
-
-            size = onLoadMoreData(
-                    this.infiniteScrollObject.getCurrentPage() + 1, totalItemCount, (ListView) view);
-            //set false if not have data or list have 0 items
-            this.infiniteScrollObject.setLoading((size > 0) ? true : false);
-        }
-
-        //Hide or show the progress bar if is loading data or not
-        if(this.infiniteScrollObject.getProgressBar() != null){
-            this.infiniteScrollObject.getProgressBar().setVisibility(
-                    this.infiniteScrollObject.isLoading() ? View.VISIBLE : View.GONE);
-        }
-
-        //if is loading and total new items is more than previous total items
-        //set loading, sum one page to current page
-        if (this.infiniteScrollObject.isLoading() && (totalItemCount > this.infiniteScrollObject.getPreviousTotalItemCount())) {
-            this.infiniteScrollObject.setLoading(false);
-            this.infiniteScrollObject.setPreviousTotalItemCount(totalItemCount);
-            this.infiniteScrollObject.setCurrentPage(this.infiniteScrollObject.getCurrentPage()+1);
-            //if the status is state fling gone the progress bar
-        }else if(scrollStatusCount == SCROLL_STATE_FLING){
-            goneProgressBar();
-        }
-
     }
 
     @Override

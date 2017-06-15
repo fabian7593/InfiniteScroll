@@ -20,6 +20,15 @@ public class Country {
     private String currencyName;
     private String currencySymbol;
     private String flag;
+    private String flagPng;
+
+    public String getFlagPng() {
+        return flagPng;
+    }
+
+    public void setFlagPng(String flagPng) {
+        this.flagPng = flagPng;
+    }
 
     public String getName() {
         return name;

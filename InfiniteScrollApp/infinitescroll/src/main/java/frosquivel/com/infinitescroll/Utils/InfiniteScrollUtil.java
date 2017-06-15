@@ -1,5 +1,9 @@
 package frosquivel.com.infinitescroll.Utils;
 
+import android.app.Activity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.widget.Adapter;
 
 import java.util.HashMap;
@@ -17,5 +21,17 @@ public class InfiniteScrollUtil {
         mapStructure.put(C_ADAPTER_RETURN, adapter);
         mapStructure.put(C_RESPONSE_SIZE_RETURN, responseIntSize);
         return mapStructure;
+    }
+
+
+    public static boolean isNetworkAvailable(Activity context) {
+
+
+            ConnectivityManager connectivityManager
+                    = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+
     }
 }

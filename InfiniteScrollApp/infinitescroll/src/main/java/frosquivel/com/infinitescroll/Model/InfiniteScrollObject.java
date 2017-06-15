@@ -1,5 +1,6 @@
 package frosquivel.com.infinitescroll.Model;
 
+import android.app.Activity;
 import android.widget.ProgressBar;
 
 /**
@@ -23,7 +24,9 @@ public class InfiniteScrollObject {
 
     private int firstVisibleItem, visibleItemCount, totalItemCount;
 
-    public InfiniteScrollObject(){
+    private Activity activity;
+
+    public InfiniteScrollObject(Activity activity){
         this.minimunNumberRowLoadingMore = 3;
         this.currentPage = 0;
         this.previousTotalItemCount = 0;
@@ -33,6 +36,15 @@ public class InfiniteScrollObject {
         this.visibleItemCount = 0;
         this.totalItemCount = 0;
         this.isFinalItem = 1;
+        this.activity = activity;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 
     public int getFinalItem() {
@@ -64,7 +76,15 @@ public class InfiniteScrollObject {
     }
 
     public void setCurrentPage(int currentPage) {
-        this.currentPage = currentPage ;
+        this.currentPage = currentPage - 1;
+    }
+
+    public void setCurrentPage(int currentPage, boolean isFirst) {
+
+        if(!isFirst)
+            this.currentPage = currentPage;
+        else
+            this.currentPage = currentPage - 1;
     }
 
     public int getPreviousTotalItemCount() {

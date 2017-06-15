@@ -2,6 +2,7 @@ package frosquivel.com.infinitescrollapp;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Fabian on 02/06/2017.
@@ -23,6 +26,8 @@ import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
 
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,13 +90,13 @@ public class BaseActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_camera) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_on_boarding) {
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_gallery) {
 
         }
 
@@ -105,4 +110,5 @@ public class BaseActivity extends AppCompatActivity
 
         return true;
     }
+
 }

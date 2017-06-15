@@ -23,24 +23,27 @@
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/activity_vertical_margin">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@android:drawable/sym_def_app_icon" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/profile"
+            app:civ_border_width="1dp"
+            android:layout_marginTop="15dp"
+            app:civ_border_color="#FFFFFF"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:text="Android Studio"
+            android:text="@string/menu_personal_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="android.studio@android.com" />
+            android:text="@string/menu_profession" />
     </LinearLayout>
 </RelativeLayout>

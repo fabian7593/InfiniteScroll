@@ -21,53 +21,36 @@ import okhttp3.Response;
 
 public class RequestApi {
     public static void callCountryAPI(String url, final Activity activity, final InfiniteScrollInterface infiniteScrollInterface){
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        client.newCall(request)
-                .enqueue(new Callback() {
-                    @Override
-                    public void onFailure(final Call call, IOException e) {
-
-                        final String stackTrace = e.toString();
-                        activity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                infiniteScrollInterface.onFailure(stackTrace);
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onResponse(Call call, final Response response) throws IOException {
-                        String res = response.body().string();
-                        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-                        ResponseModel responseModel = gson.fromJson(res, ResponseModel.class);
-                        infiniteScrollInterface.onSuccess(responseModel);
-                    }
-                });
-    }
 
 
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
 
-    public static void requestSvgPictures(String url, final Activity activity){
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
+            client.newCall(request)
+                    .enqueue(new Callback() {
+                        @Override
+                        public void onFailure(final Call call, IOException e) {
 
-        client.newCall(request)
-                .enqueue(new Callback() {
-                    @Override
-                    public void onFailure(final Call call, IOException e) {}
+                            final String stackTrace = e.toString();
+                            activity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
 
-                    @Override
-                    public void onResponse(Call call, final Response response) throws IOException {
-                        String res = response.body().string();
+                                    infiniteScrollInterface.onFailure(stackTrace);
+                                }
+                            });
+                        }
 
-                    }
-                });
+                        @Override
+                        public void onResponse(Call call, final Response response) throws IOException {
+                            String res = response.body().string();
+                            Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+                            ResponseModel responseModel = gson.fromJson(res, ResponseModel.class);
+                            infiniteScrollInterface.onSuccess(responseModel);
+                        }
+                    });
+
     }
 }

@@ -1,8 +1,13 @@
 package frosquivel.com.infinitescrollapp;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
+import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -34,7 +39,6 @@ public class MainActivity extends BaseActivity {
      *https://github.com/wasabeef/Blurry
      *https://github.com/jrvansuita/MaterialAbout
      *https://github.com/chrisjenx/Calligraphy
-     * https://github.com/bumptech/glide
      * https://github.com/Ramotion/paper-onboarding-android
      * https://github.com/Cleveroad/SlidingTutorial-Android
      * https://github.com/rosenpin/FadingTextView
