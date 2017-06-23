@@ -1,10 +1,12 @@
-package frosquivel.com.infinitescrollapp;
+package frosquivel.com.infinitescrollapp.Activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import frosquivel.com.infinitescrollapp.MainActivity;
+import frosquivel.com.infinitescrollapp.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 

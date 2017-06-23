@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer-array name="colors">
+        <item>@color/colorAccent</item>
+        <item>@color/deep_purple_500</item>
+        <item>@color/blue_500</item>
+    </integer-array>
+</resources>

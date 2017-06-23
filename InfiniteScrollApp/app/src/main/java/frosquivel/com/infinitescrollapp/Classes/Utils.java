@@ -1,19 +1,16 @@
 package frosquivel.com.infinitescrollapp.Classes;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 
 import com.irozon.sneaker.Sneaker;
 
-import frosquivel.com.infinitescrollapp.Menu.WebViewActivity;
+import frosquivel.com.infinitescrollapp.Activities.WebViewActivity;
 import frosquivel.com.infinitescrollapp.R;
 
 
@@ -99,7 +96,7 @@ public class Utils {
 
     public static void sharedApp(Activity activity) {
         Intent shareIntent = new Intent();
-       /* String textEmail = activity.getString(R.string.email_text);
+        String textEmail = activity.getString(R.string.email_text);
         textEmail = textEmail.replace("XXXX1", activity.getString(R.string.link_git));
         textEmail = textEmail.replace("XXXX2", activity.getString(R.string.link_play_store));
         textEmail = textEmail.replace("XXXX3", activity.getString(R.string.link_play_store_payment));
@@ -109,7 +106,7 @@ public class Utils {
         shareIntent.putExtra(Intent.EXTRA_TEXT, textEmail);
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, activity.getString(R.string.email_subject));
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(Intent.createChooser(shareIntent, activity.getString(R.string.email_title)));*/
+        activity.startActivity(Intent.createChooser(shareIntent, activity.getString(R.string.email_title)));
     }
 
 

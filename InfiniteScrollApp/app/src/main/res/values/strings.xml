@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Infinite Scroll</string>
 
+    <!-- menu -->
     <string name="menu_personal_name">Fabián Rosales Esquivel</string>
     <string name="menu_developer_name">Frosquivel Developer</string>
     <string name="menu_profession">Analyst and Software Developer</string>
@@ -10,28 +11,42 @@
     <string name="menu_title_communicate_with_us">Communicate with Us</string>
     <string name="menu_share">Share</string>
     <string name="menu_help_us">Help Us</string>
-    <string name="menu_contact_us">Contact Us</string>
+    <string name="menu_contact_us">We offer</string>
     <string name="menu_title_footer">Footer</string>
     <string name="menu_about">About</string>
     <string name="menu_license">License</string>
     <string name="menu_awareness">Awareness</string>
+    <string name="menu_personal_value">https://github.com/fabian7593</string>
+    <string name="menu_infinite_scroll_value">https://fabian7593.github.io/InifiniteScroll/</string>
+    <string name="menu_county_api_value">https://fabian7593.github.io/CountryAPI/</string>
+    <string name="menu_license_value">https://www.apache.org/licenses/LICENSE-2.0</string>
 
+    <!-- Email -->
+    <string name="email_subject">Infinite Scroll Android Library 0.0.1</string>
+    <string name="email_choose">Choose Email Client</string>
+    <string name="email_title">Share Infinite Scroll</string>
+    <string name="email_text">Hello We are the developers of Infinite Scroll library, \n\n we want to share with you this library, Infinite Scroll, for call your when the list view require this. \n\n View this library here. \n XXXX1 \n\n And download the app here: \n XXXX2, \n\n And if you have the possibility to buy the Payment app, we will be very grateful, you can see here: \n XXXX3</string>
+    <string name="link_git">https://github.com/fabian7593/InifiniteScroll</string>
+    <string name="link_play_store">https://play.google.com/store/apps/details?id=frosquivel.com.infinitescrollapp</string>
+    <string name="link_play_store_payment">https://play.google.com/store/apps/details?id=frosquivel.com.infinitescrollpayapp</string>
 
+    <!-- shared preferences default-->
     <string name="shared_preference_minimun_number_row_loading">8</string>
     <string name="shared_preference_current_page">1</string>
     <string name="shared_preference_max_limit">25</string>
 
-
+    <!-- awareness message -->
     <string name="splash_border_text">No borders</string>
     <string name="splash_father_we_are">We are all ?</string>
     <string name="splash_child_human">humans</string>
     <string name="splash_child_brothers">brothers</string>
 
+    <!-- navigators -->
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
     <string name="action_settings">Settings</string>
 
-
+    <!-- Errors -->
     <string name="error_title">Error!</string>
     <string name="error_not_have_networking">Please review your internet connection.</string>
 </resources>

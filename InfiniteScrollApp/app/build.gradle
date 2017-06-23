@@ -19,6 +19,13 @@ android {
     }
 }
 
+repositories {
+    maven {
+        url "http://dl.bintray.com/glomadrian/maven"
+    }
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -37,6 +44,9 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
     compile 'com.sdsmdg.harjot:rotatingtext:1.0.2'
     compile 'com.irozon.sneaker:sneaker:1.0.1'
+    compile 'com.github.glomadrian:loadingballs:1.1@aar'
+    compile 'konifar:fab-transformation:1.0.0'
+    compile 'com.skyfishjy.ripplebackground:library:1.0.1'
     compile files('libs/svg-android.jar')
     testCompile 'junit:junit:4.12'
 }

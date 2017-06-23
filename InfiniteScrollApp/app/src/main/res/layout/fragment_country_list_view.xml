@@ -1,16 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="frosquivel.com.infinitescrollapp.MainActivity"
-    android:background="@color/colorWhite">
 
-    <ListView
-        android:id="@+id/listView"
+
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/listViewConstraint"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite"></ListView>
+        android:layout_centerInParent="true"
+        tools:context="frosquivel.com.infinitescrollapp.MainActivity"
+        android:background="@color/colorWhite">
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"/>
+    </android.support.constraint.ConstraintLayout>
 
-</android.support.constraint.ConstraintLayout>
+
+        <!-- Any Fab is OK. (Third party library, your custom view and so on) -->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            style="@style/FabMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_network"
+            app:backgroundTint="@color/indigo_500"
+            app:borderWidth="0dp"
+
+            android:layout_margin="10dp"/>
+
+        <!-- You must wrap transform view in Circular reveal container -->
+        <io.codetail.widget.RevealFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <!-- Transform view -->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_footer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/indigo_500"
+                android:visibility="invisible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.skyfishjy.library.RippleBackground
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/content"
+                        app:rb_color="#0099CC"
+                        app:rb_radius="35dp"
+                        app:rb_rippleAmount="4"
+                        app:rb_duration="3000"
+                        app:rb_scale="6"
+                        app:rb_type="fillRipple">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_about" />
+                    </com.skyfishjy.library.RippleBackground>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_feedback"
+                        android:clickable="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_license" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_feedback"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_contact" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_feedback"
+                        android:clickable="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_documentation" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_feedback"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_help_us" />
+
+                </LinearLayout>
+
+
+                <!-- Put view you like -->
+            </android.support.v7.widget.Toolbar>
+
+        </io.codetail.widget.RevealFrameLayout>
+
+    </RelativeLayout>
+
+

@@ -33,12 +33,12 @@ public class MainActivity extends BaseActivity {
      *https://github.com/DanielMartinus/Konfetti
      *https://github.com/sdsmdg/RotatingText
      *https://github.com/Hamadakram/Sneaker
-     *https://github.com/harjot-oberai/MaterialShadows
+
      *https://github.com/kmenager/material-animated-switch
      *https://github.com/konifar/fab-transformation
      *https://github.com/wasabeef/Blurry
      *https://github.com/jrvansuita/MaterialAbout
-     *https://github.com/chrisjenx/Calligraphy
+
      * https://github.com/Ramotion/paper-onboarding-android
      * https://github.com/Cleveroad/SlidingTutorial-Android
      * https://github.com/rosenpin/FadingTextView

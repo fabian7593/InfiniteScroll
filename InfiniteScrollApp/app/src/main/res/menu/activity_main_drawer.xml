@@ -3,7 +3,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_infinite_scroll"
             android:icon="@drawable/ic_icon_infinite"
             android:title="@string/menu_infinite_scroll" />
 
@@ -13,7 +13,7 @@
             android:title="@string/menu_settings" />
 
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_country_api"
             android:icon="@drawable/ic_api"
             android:title="@string/menu_country_api" />
     </group>
@@ -31,7 +31,7 @@
 
         <item
             android:id="@+id/nav_on_boarding"
-            android:icon="@drawable/ic_contact"
+            android:icon="@drawable/ic_offer"
             android:title="@string/menu_contact_us" />
 
     </menu>

@@ -5,8 +5,12 @@ import android.app.Fragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,6 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+
+import com.konifar.fab_transformation.FabTransformation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +47,7 @@ public class CountryListViewFragment extends Fragment {
     private List<Object> objectList;
     private final int numberOfRequest = 10;
     private ProgressBar progressBar;
+    private ConstraintLayout listViewConstraint;
     private ListView lvItems;
     private static ResponseModel responseModelStatic;
 
@@ -59,6 +66,37 @@ public class CountryListViewFragment extends Fragment {
         progressBar.setVisibility(View.GONE);
         lvItems = (ListView) rootView.findViewById(R.id.listView);
         lvItems.addFooterView(footer);
+
+        listViewConstraint = (ConstraintLayout) rootView.findViewById(R.id.listViewConstraint);
+
+        final Toolbar toolbarFooter = (Toolbar) rootView.findViewById(R.id.toolbar_footer);
+        final FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FabTransformation.with(fab)
+                        .transformTo(toolbarFooter);
+            }
+        });
+
+        toolbarFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FabTransformation.with(fab)
+                        .transformFrom(toolbarFooter);
+            }
+        });
+
+
+        listViewConstraint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FabTransformation.with(fab)
+                        .transformFrom(toolbarFooter);
+            }
+        });
+
 
         InfiniteScrollObject infiniteScrollObject = new InfiniteScrollObject(activity);
         infiniteScrollObject.setCurrentPage(1);
@@ -109,6 +147,12 @@ public class CountryListViewFragment extends Fragment {
                             }
                         });
                     }
+                }
+
+
+                @Override
+                public void onFailure(String errorResponse){
+                    Utils.showSneakerDialog(activity, errorResponse);
                 }
             };
 

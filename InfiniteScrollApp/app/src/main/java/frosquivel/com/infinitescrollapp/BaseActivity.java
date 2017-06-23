@@ -2,8 +2,6 @@ package frosquivel.com.infinitescrollapp;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,9 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import frosquivel.com.infinitescrollapp.Classes.Utils;
 import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Fabian on 02/06/2017.
@@ -26,8 +23,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +51,13 @@ public class BaseActivity extends AppCompatActivity
         animacion.setExitFadeDuration(4000);
         animacion.start();
 
+        imageViewBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.goToWebView(BaseActivity.this.getString(R.string.menu_personal_value), BaseActivity.this);
+            }
+        });
+
         chargeFirstFragment();
     }
 
@@ -66,6 +68,7 @@ public class BaseActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            finish();
         }
     }
 
@@ -78,7 +81,6 @@ public class BaseActivity extends AppCompatActivity
         }
     }
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -86,18 +88,14 @@ public class BaseActivity extends AppCompatActivity
         Fragment fragment = null;
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_camera) {
-
-        } else if (id == R.id.nav_on_boarding) {
-
+        if (id == R.id.nav_infinite_scroll) {
+            Utils.goToWebView(this.getString(R.string.menu_infinite_scroll_value), BaseActivity.this);
+        } else if (id == R.id.nav_license) {
+            Utils.goToWebView(this.getString(R.string.menu_license_value), BaseActivity.this);
+        } else if (id == R.id.nav_country_api) {
+            Utils.goToWebView(this.getString(R.string.menu_county_api_value), BaseActivity.this);
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_gallery) {
-
+            Utils.sharedApp(BaseActivity.this);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -110,5 +108,4 @@ public class BaseActivity extends AppCompatActivity
 
         return true;
     }
-
 }

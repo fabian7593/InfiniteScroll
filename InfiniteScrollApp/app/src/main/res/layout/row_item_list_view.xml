@@ -2,20 +2,42 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:lib="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     android:orientation="horizontal"
     tools:ignore="MissingPrefix">
 
-    <ImageView
-        android:id="@+id/imageCountry"
+    <RelativeLayout
         android:layout_width="50dp"
         android:layout_height="33dp"
-        android:scaleType="fitXY"
         android:layout_margin="8dp"
-        android:background="@drawable/rounded_corner"
-        android:alpha="0.8"
-        android:adjustViewBounds="true"
-        />
+        android:background="@drawable/rounded_corner">
+
+        <com.github.glomadrian.loadingballs.BallView
+            android:id="@+id/loadingBalls"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            lib:balls="2"
+            lib:movement_cycle_time="1500"
+            lib:enable_size_animation="false"
+            lib:ball_colors="@array/colors"
+            android:layout_gravity="center"
+            lib:path="triangle"
+            lib:ball_size="7dp"
+            android:visibility="visible"
+            />
+
+        <ImageView
+            android:id="@+id/imageCountry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:background="@drawable/rounded_corner"
+            android:alpha="0.8"
+            android:adjustViewBounds="true"
+            />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -45,6 +67,5 @@
             android:textSize="14sp"
             fontPath="font/NEOTERICRegular.ttf"/>
     </LinearLayout>
-
 
 </LinearLayout>
