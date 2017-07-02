@@ -10,12 +10,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -51,6 +51,17 @@ public class CountryListViewFragment extends Fragment {
     private ListView lvItems;
     private static ResponseModel responseModelStatic;
 
+    private ImageView toolbar_git;
+    private ImageView toolbar_linked_in;
+    private ImageView toolbar_messenger;
+    private ImageView toolbar_email;
+    private ImageView toolbar_youtube;
+    private ImageView toolbar_share;
+    private ImageView toolbar_back;
+
+    private Toolbar toolbarFooter;
+    private FloatingActionButton fab;
+
     private Context context;
     private Activity activity;
     @Override
@@ -67,36 +78,7 @@ public class CountryListViewFragment extends Fragment {
         lvItems = (ListView) rootView.findViewById(R.id.listView);
         lvItems.addFooterView(footer);
 
-        listViewConstraint = (ConstraintLayout) rootView.findViewById(R.id.listViewConstraint);
-
-        final Toolbar toolbarFooter = (Toolbar) rootView.findViewById(R.id.toolbar_footer);
-        final FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FabTransformation.with(fab)
-                        .transformTo(toolbarFooter);
-            }
-        });
-
-        toolbarFooter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FabTransformation.with(fab)
-                        .transformFrom(toolbarFooter);
-            }
-        });
-
-
-        listViewConstraint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FabTransformation.with(fab)
-                        .transformFrom(toolbarFooter);
-            }
-        });
-
+        initUiComponents(rootView);
 
         InfiniteScrollObject infiniteScrollObject = new InfiniteScrollObject(activity);
         infiniteScrollObject.setCurrentPage(1);
@@ -114,8 +96,6 @@ public class CountryListViewFragment extends Fragment {
 
         return rootView;
     }
-
-
 
     public int resquestAPIMethod(final int offset) {
         if(Utils.isNetworkAvailable(activity)) {
@@ -149,7 +129,6 @@ public class CountryListViewFragment extends Fragment {
                     }
                 }
 
-
                 @Override
                 public void onFailure(String errorResponse){
                     Utils.showSneakerDialog(activity, errorResponse);
@@ -168,8 +147,6 @@ public class CountryListViewFragment extends Fragment {
             return 0;
         }
     }
-
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -196,6 +173,100 @@ public class CountryListViewFragment extends Fragment {
                 return false;
             }
 
+        });
+    }
+
+    private void initUiComponents(View rootView){
+        toolbarFooter = (Toolbar) rootView.findViewById(R.id.toolbar_footer);
+        fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+
+        toolbar_back = (ImageView) rootView.findViewById(R.id.toolbar_back);
+        toolbar_share = (ImageView) rootView.findViewById(R.id.toolbar_share);
+        toolbar_youtube = (ImageView) rootView.findViewById(R.id.toolbar_youtube);
+        toolbar_email = (ImageView) rootView.findViewById(R.id.toolbar_email);
+        toolbar_messenger = (ImageView) rootView.findViewById(R.id.toolbar_messenger);
+        toolbar_linked_in = (ImageView) rootView.findViewById(R.id.toolbar_linked_in);
+        toolbar_git = (ImageView) rootView.findViewById(R.id.toolbar_git);
+
+        listViewConstraint = (ConstraintLayout) rootView.findViewById(R.id.listViewConstraint);
+
+        toolbar_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.sharedApp(activity);
+            }
+        });
+
+        toolbar_youtube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Utils.openScheme(activity, activity.getString(R.string.scheme_scheme_youtube), activity.getString(R.string.scheme_id_youtube),
+                        activity.getString(R.string.scheme_url_youtube), activity.getString(R.string.error_not_open_youtube));
+            }
+        });
+
+        toolbar_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.sendMeAnEmail(activity);
+            }
+        });
+
+        toolbar_messenger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.openScheme(activity, activity.getString(R.string.scheme_scheme_messenger), activity.getString(R.string.scheme_id_messenger),
+                        activity.getString(R.string.scheme_url_messenger), activity.getString(R.string.error_not_open_messenger));
+            }
+        });
+
+        toolbar_linked_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.openScheme(activity, activity.getString(R.string.scheme_scheme_linkedin), activity.getString(R.string.scheme_id_linkedin),
+                        activity.getString(R.string.scheme_url_linkedin), activity.getString(R.string.error_not_open_linkedin));
+            }
+        });
+
+        toolbar_git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.goToWebView(getString(R.string.menu_git_creator), activity);
+            }
+        });
+
+        toolbar_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FabTransformation.with(fab)
+                        .transformFrom(toolbarFooter);
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FabTransformation.with(fab)
+                        .transformTo(toolbarFooter);
+            }
+        });
+
+        toolbarFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FabTransformation.with(fab)
+                        .transformFrom(toolbarFooter);
+            }
+        });
+
+
+        listViewConstraint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FabTransformation.with(fab)
+                        .transformFrom(toolbarFooter);
+            }
         });
     }
 }

@@ -7,29 +7,29 @@ import java.util.List;
  */
 
 public class ResponseModel {
-    private int isSucessfull;
-    private String userMessage;
-    private String technicalMessage;
-    private int totalCount;
-    private List<Country> response;
+    private int IsSucess;
+    private String UserMessage;
+    private String TechnicalMessage;
+    private int TotalCount;
+    private List<Country> Response;
 
     public int getIsSucessfull() {
-        return isSucessfull;
+        return IsSucess;
     }
 
     public String getUserMessage() {
-        return userMessage;
+        return UserMessage;
     }
 
     public String getTechnicalMessage() {
-        return technicalMessage;
+        return TechnicalMessage;
     }
 
     public int getTotalCount() {
-        return totalCount;
+        return TotalCount;
     }
 
     public List<Country> getResponse() {
-        return response;
+        return Response;
     }
 }

@@ -8,7 +8,6 @@ public class Const {
     public static final String C_URL_REQUEST_COUNTRYAPI = "http://countryapi.gear.host/v1/Country/getCountries?pLimit=%s&pPage=%s";
     public static final String C_SHARED_PREFERENCES = "SCROLL_INFINITE_PREFERENCES";
 
-
     public static final String C_MINIMUM_NUMBER_ROW_SHOW = "C_MINIMUM_NUMBER_ROW_SHOW";
     public static final String C_CURRENT_PAGE = "C_CURRENT_PAGE";
     public static final String C_MAX_LIMIT = "C_MAX_LIMIT";

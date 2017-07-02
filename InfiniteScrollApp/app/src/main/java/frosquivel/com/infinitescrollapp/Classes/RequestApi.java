@@ -22,7 +22,6 @@ import okhttp3.Response;
 public class RequestApi {
     public static void callCountryAPI(String url, final Activity activity, final InfiniteScrollInterface infiniteScrollInterface){
 
-
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
                     .url(url)

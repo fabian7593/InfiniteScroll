@@ -1,12 +1,15 @@
 package frosquivel.com.infinitescrollapp.Classes;
 
 import android.app.Activity;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.irozon.sneaker.Sneaker;
 
@@ -58,9 +61,7 @@ public class Utils {
 
         if(getSharedPreference(context, Const.C_P_AREA_TO).equals("") || isDefaultValues)
             setSharedPreference(context, Const.C_P_AREA_TO, "");
-
     }
-
 
     //#Shared preference methods
     public static void setSharedPreference(Context context, String preferenceName, String preferenceValue){
@@ -88,10 +89,10 @@ public class Utils {
     public static void sendMeAnEmail(Activity activity){
         Intent email = new Intent(Intent.ACTION_SEND);
         email.putExtra(Intent.EXTRA_EMAIL, new String[]{"fabian7593@gmail.com"});
-       // email.putExtra(Intent.EXTRA_SUBJECT, activity.getString(R.string.email_subject));
+        email.putExtra(Intent.EXTRA_SUBJECT, activity.getString(R.string.email_subject));
         email.putExtra(Intent.EXTRA_TEXT, "");
         email.setType("message/rfc822");
-        //activity.startActivity(Intent.createChooser(email, activity.getString(R.string.email_choose)));
+        activity.startActivity(Intent.createChooser(email, activity.getString(R.string.email_choose)));
     }
 
     public static void sharedApp(Activity activity) {
@@ -109,8 +110,6 @@ public class Utils {
         activity.startActivity(Intent.createChooser(shareIntent, activity.getString(R.string.email_title)));
     }
 
-
-
     //validate if network is available
     public static boolean isNetworkAvailable(Activity context) {
         ConnectivityManager connectivityManager
@@ -119,11 +118,33 @@ public class Utils {
 
         boolean toReturn = activeNetworkInfo != null && activeNetworkInfo.isConnected();
 
-        showSneakerDialog(context, context.getString(R.string.error_not_have_networking));
+        if(!toReturn)
+            showSneakerDialog(context, context.getString(R.string.error_not_have_networking));
 
         return toReturn;
     }
 
+    public static void openScheme(Activity activity, String scheme, String id, String url, String errorMessage){
+        Uri uri = Uri.parse(scheme);
+        try {
+            uri = ContentUris.withAppendedId(uri, Long.parseLong(id));
+        }catch(Exception ev){
+            uri = Uri.parse(scheme + id);
+        }
+
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            activity.startActivity(intent);
+        }catch(Exception ev){
+            try {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                activity.startActivity(browserIntent);
+            }catch(Exception ex){
+                Toast.makeText(activity,errorMessage,Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
 
     public static void showSneakerDialog(Activity activity, String errorMessage){
@@ -133,4 +154,5 @@ public class Utils {
                 .setHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .sneakError();
     }
+
 }

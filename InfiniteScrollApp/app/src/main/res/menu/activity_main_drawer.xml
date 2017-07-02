@@ -24,10 +24,6 @@
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_menu_share"
             android:title="@string/menu_share" />
-        <item
-            android:id="@+id/nav_help_us"
-            android:icon="@drawable/ic_help_us"
-            android:title="@string/menu_help_us" />
 
         <item
             android:id="@+id/nav_on_boarding"
@@ -41,10 +37,6 @@
     <item android:title="@string/menu_title_footer">
         <menu>
             <item
-                android:id="@+id/nav_license"
-                android:icon="@drawable/ic_license"
-                android:title="@string/menu_license" />
-            <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/ic_about"
                 android:title="@string/menu_about" />
@@ -53,6 +45,11 @@
                 android:id="@+id/nav_awareness"
                 android:icon="@drawable/ic_awareness"
                 android:title="@string/menu_awareness" />
+
+            <item
+                android:id="@+id/nav_license"
+                android:icon="@drawable/ic_license"
+                android:title="@string/menu_license" />
         </menu>
     </item>
 

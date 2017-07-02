@@ -41,7 +41,7 @@ public class CountryAdapter extends InfiniteScrollAdapter  {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = null;
+         View view = null;
         context =  getContext();
         Country country = (Country)getItem(position);
 

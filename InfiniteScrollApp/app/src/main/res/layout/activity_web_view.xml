@@ -7,7 +7,7 @@
     xmlns:lib="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context=".BaseDetailActivity">
+    tools:context=".Activities.Base.BaseDetailActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

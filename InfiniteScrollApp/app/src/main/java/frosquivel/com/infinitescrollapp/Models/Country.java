@@ -5,148 +5,150 @@ package frosquivel.com.infinitescrollapp.Models;
  */
 
 public class Country {
-    private String name;
-    private String alpha2Code;
-    private String alpha3Code;
-    private String nativeName;
-    private String region;
-    private String subRegion;
-    private String latitude;
-    private String longitude;
-    private long area;
-    private int numericCode;
-    private String nativeLanguage;
-    private String currencyCode;
-    private String currencyName;
-    private String currencySymbol;
-    private String flag;
-    private String flagPng;
 
-    public String getFlagPng() {
-        return flagPng;
-    }
-
-    public void setFlagPng(String flagPng) {
-        this.flagPng = flagPng;
-    }
+    private String Name;
+    private String Alpha2Code;
+    private String Alpha3Code;
+    private String NativeName;
+    private String Region;
+    private String SubRegion;
+    private String Latitude;
+    private String Longitude;
+    private long Area;
+    private int NumericCode;
+    private String NativeLanguage;
+    private String CurrencyCode;
+    private String CurrencyName;
+    private String CurrencySymbol;
+    private String Flag;
+    private String FlagPng;
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
     public String getAlpha2Code() {
-        return alpha2Code;
+        return Alpha2Code;
     }
 
     public void setAlpha2Code(String alpha2Code) {
-        this.alpha2Code = alpha2Code;
+        Alpha2Code = alpha2Code;
     }
 
     public String getAlpha3Code() {
-        return alpha3Code;
+        return Alpha3Code;
     }
 
     public void setAlpha3Code(String alpha3Code) {
-        this.alpha3Code = alpha3Code;
+        Alpha3Code = alpha3Code;
     }
 
     public String getNativeName() {
-        return nativeName;
+        return NativeName;
     }
 
     public void setNativeName(String nativeName) {
-        this.nativeName = nativeName;
+        NativeName = nativeName;
     }
 
     public String getRegion() {
-        return region;
+        return Region;
     }
 
     public void setRegion(String region) {
-        this.region = region;
+        Region = region;
     }
 
     public String getSubRegion() {
-        return subRegion;
+        return SubRegion;
     }
 
     public void setSubRegion(String subRegion) {
-        this.subRegion = subRegion;
+        SubRegion = subRegion;
     }
 
     public String getLatitude() {
-        return latitude;
+        return Latitude;
     }
 
     public void setLatitude(String latitude) {
-        this.latitude = latitude;
+        Latitude = latitude;
     }
 
     public String getLongitude() {
-        return longitude;
+        return Longitude;
     }
 
     public void setLongitude(String longitude) {
-        this.longitude = longitude;
+        Longitude = longitude;
     }
 
     public long getArea() {
-        return area;
+        return Area;
     }
 
     public void setArea(long area) {
-        this.area = area;
+        Area = area;
     }
 
     public int getNumericCode() {
-        return numericCode;
+        return NumericCode;
     }
 
     public void setNumericCode(int numericCode) {
-        this.numericCode = numericCode;
+        NumericCode = numericCode;
     }
 
     public String getNativeLanguage() {
-        return nativeLanguage;
+        return NativeLanguage;
     }
 
     public void setNativeLanguage(String nativeLanguage) {
-        this.nativeLanguage = nativeLanguage;
+        NativeLanguage = nativeLanguage;
     }
 
     public String getCurrencyCode() {
-        return currencyCode;
+        return CurrencyCode;
     }
 
     public void setCurrencyCode(String currencyCode) {
-        this.currencyCode = currencyCode;
+        CurrencyCode = currencyCode;
     }
 
     public String getCurrencyName() {
-        return currencyName;
+        return CurrencyName;
     }
 
     public void setCurrencyName(String currencyName) {
-        this.currencyName = currencyName;
+        CurrencyName = currencyName;
     }
 
     public String getCurrencySymbol() {
-        return currencySymbol;
+        return CurrencySymbol;
     }
 
     public void setCurrencySymbol(String currencySymbol) {
-        this.currencySymbol = currencySymbol;
+        CurrencySymbol = currencySymbol;
     }
 
     public String getFlag() {
-        return flag;
+        return Flag;
     }
 
     public void setFlag(String flag) {
-        this.flag = flag;
+        Flag = flag;
     }
+
+    public String getFlagPng() {
+        return FlagPng;
+    }
+
+    public void setFlagPng(String flagPng) {
+        FlagPng = flagPng;
+    }
+
 }

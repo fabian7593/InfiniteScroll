@@ -1,7 +1,8 @@
-package frosquivel.com.infinitescrollapp;
+package frosquivel.com.infinitescrollapp.Activities.Base;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,8 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import frosquivel.com.infinitescrollapp.Activities.AboutActivity;
+import frosquivel.com.infinitescrollapp.Activities.PaperOnboardingActivity;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
 import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
+import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 02/06/2017.
@@ -96,6 +100,12 @@ public class BaseActivity extends AppCompatActivity
             Utils.goToWebView(this.getString(R.string.menu_county_api_value), BaseActivity.this);
         } else if (id == R.id.nav_share) {
             Utils.sharedApp(BaseActivity.this);
+        } else if (id == R.id.nav_on_boarding) {
+            Intent mainIntent = new Intent(this, PaperOnboardingActivity.class);
+            startActivity(mainIntent);
+        } else if (id == R.id.nav_about) {
+            Intent mainIntent = new Intent(this, AboutActivity.class);
+            startActivity(mainIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -7,7 +7,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.github.glomadrian.loadingballs.BallView;
-import frosquivel.com.infinitescrollapp.BaseDetailActivity;
+import frosquivel.com.infinitescrollapp.Activities.Base.BaseDetailActivity;
 import frosquivel.com.infinitescrollapp.R;
 
 /**

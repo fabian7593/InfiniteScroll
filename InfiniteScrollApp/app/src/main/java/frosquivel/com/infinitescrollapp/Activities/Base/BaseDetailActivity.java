@@ -1,4 +1,4 @@
-package frosquivel.com.infinitescrollapp;
+package frosquivel.com.infinitescrollapp.Activities.Base;
 
 
 import android.app.Activity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 16/06/2017.

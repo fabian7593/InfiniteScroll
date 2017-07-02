@@ -10,7 +10,7 @@
     <string name="menu_country_api">Country API</string>
     <string name="menu_title_communicate_with_us">Communicate with Us</string>
     <string name="menu_share">Share</string>
-    <string name="menu_help_us">Help Us</string>
+    <string name="menu_help_us">Buy me a coffee</string>
     <string name="menu_contact_us">We offer</string>
     <string name="menu_title_footer">Footer</string>
     <string name="menu_about">About</string>
@@ -20,6 +20,7 @@
     <string name="menu_infinite_scroll_value">https://fabian7593.github.io/InifiniteScroll/</string>
     <string name="menu_county_api_value">https://fabian7593.github.io/CountryAPI/</string>
     <string name="menu_license_value">https://www.apache.org/licenses/LICENSE-2.0</string>
+    <string name="menu_git_creator">https://github.com/fabian7593</string>
 
     <!-- Email -->
     <string name="email_subject">Infinite Scroll Android Library 0.0.1</string>
@@ -35,6 +36,20 @@
     <string name="shared_preference_current_page">1</string>
     <string name="shared_preference_max_limit">25</string>
 
+    <!-- onBoarding -->
+    <string name="on_boarding_android_title">Android Development</string>
+    <string name="on_boarding_ios_title">iOS Development</string>
+    <string name="on_boarding_web_title">Web development</string>
+    <string name="on_boarding_analytics_title">Analytics / graphics</string>
+    <string name="on_boarding_qa_title">QA</string>
+    <string name="on_boarding_cloud_title">Cloud Computing</string>
+    <string name="on_boarding_android_value">App creation with Android for with Java, Android Studio, with high quality.</string>
+    <string name="on_boarding_ios_value">App creation with iOS, with Objetive C, XCode, with high quality and performance.</string>
+    <string name="on_boarding_web_value">Web creation with .Net, and PHP. Too any scripts and frameworks front end.</string>
+    <string name="on_boarding_analytics_value">Perform BI and data analytics, and make Graphics with this information.</string>
+    <string name="on_boarding_qa_value">Perform an Quality Assurance for the software that you need.</string>
+    <string name="on_boarding_cloud_value">Connect your apps with cloud computing services like AWS, GCP and Azure.</string>
+
     <!-- awareness message -->
     <string name="splash_border_text">No borders</string>
     <string name="splash_father_we_are">We are all ?</string>
@@ -46,7 +61,21 @@
     <string name="navigation_drawer_close">Close</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Schemes -->
+    <string name="scheme_scheme_youtube">youtube://channel/</string>
+    <string name="scheme_id_youtube">UCJnvvHb_vwMwbnZWplkHIfw</string>
+    <string name="scheme_url_youtube">https://www.youtube.com/channel/UCJnvvHb_vwMwbnZWplkHIfw</string>
+    <string name="scheme_scheme_linkedin">linkedin://</string>
+    <string name="scheme_id_linkedin">fabian-rosales-esquivel-698893106</string>
+    <string name="scheme_url_linkedin">https://www.linkedin.com/in/fabian-rosales-esquivel-698893106/</string>
+    <string name="scheme_scheme_messenger">fb-messenger://user/</string>
+    <string name="scheme_id_messenger">100003819211529</string>
+    <string name="scheme_url_messenger">https://www.messenger.com/t/fabian.rosales.509</string>
+
     <!-- Errors -->
     <string name="error_title">Error!</string>
     <string name="error_not_have_networking">Please review your internet connection.</string>
+    <string name="error_not_open_messenger">You cannot open Facebook Messenger</string>
+    <string name="error_not_open_linkedin">You cannot open LinkedIn</string>
+    <string name="error_not_open_youtube">You cannot open YouTube</string>
 </resources>

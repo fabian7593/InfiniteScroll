@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import frosquivel.com.infinitescrollapp.MainActivity;
+import frosquivel.com.infinitescrollapp.Classes.Utils;
 import frosquivel.com.infinitescrollapp.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -33,6 +33,8 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash_screen);
 
+        Utils.setInitialSharedPreference(this, true);
+
         Thread timer= new Thread()
         {
             public void run()
@@ -48,7 +50,9 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
                 finally
                 {
-                    startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                    Intent mainIntent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    startActivity(mainIntent);
+                    finish();
                 }
             }
         };
