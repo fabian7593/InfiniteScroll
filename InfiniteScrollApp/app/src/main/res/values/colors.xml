@@ -13,6 +13,8 @@
     <color name="cyan_500">#3F51B5</color>499272
     <color name="light_blue_500">#673AB7</color>
 
+    <color name="color_transparent">#00FFFFFF</color>
+    <color name="colorBlack">#000000</color>
 
     <color name="onboarding_01">#e53935</color>
     <color name="onboarding_02">#D81B60</color>

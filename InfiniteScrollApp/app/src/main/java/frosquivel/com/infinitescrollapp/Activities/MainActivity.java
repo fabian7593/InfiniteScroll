@@ -20,7 +20,6 @@ public class MainActivity extends BaseActivity {
 
      *https://github.com/kmenager/material-animated-switch
      *https://github.com/wasabeef/Blurry
-     *https://github.com/jrvansuita/MaterialAbout
 
      * https://github.com/rosenpin/FadingTextView
      */

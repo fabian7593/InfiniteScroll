@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import frosquivel.com.infinitescrollapp.Activities.AboutActivity;
+import frosquivel.com.infinitescrollapp.Activities.AwarenessActivity;
 import frosquivel.com.infinitescrollapp.Activities.PaperOnboardingActivity;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
 import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
@@ -47,6 +48,9 @@ public class BaseActivity extends AppCompatActivity
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
         ImageView imageViewBackground = (ImageView) headerView.findViewById(R.id.imageViewBackground);
 
+        ImageView nav_drawer_linked_in = (ImageView) headerView.findViewById(R.id.nav_drawer_linked_in);
+        ImageView nav_drawer_git = (ImageView) headerView.findViewById(R.id.nav_drawer_git);
+
         AnimationDrawable animacion;
         animacion = (AnimationDrawable)getResources().getDrawable(
                 R.drawable.animation_list);
@@ -54,6 +58,21 @@ public class BaseActivity extends AppCompatActivity
         animacion.setEnterFadeDuration(5000);
         animacion.setExitFadeDuration(4000);
         animacion.start();
+
+        nav_drawer_git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.goToWebView(BaseActivity.this.getString(R.string.menu_personal_value), BaseActivity.this);
+            }
+        });
+
+        nav_drawer_linked_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.openScheme(BaseActivity.this, BaseActivity.this.getString(R.string.scheme_scheme_linkedin), BaseActivity.this.getString(R.string.scheme_id_linkedin),
+                        BaseActivity.this.getString(R.string.scheme_url_linkedin), BaseActivity.this.getString(R.string.error_not_open_linkedin));
+            }
+        });
 
         imageViewBackground.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +124,9 @@ public class BaseActivity extends AppCompatActivity
             startActivity(mainIntent);
         } else if (id == R.id.nav_about) {
             Intent mainIntent = new Intent(this, AboutActivity.class);
+            startActivity(mainIntent);
+        } else if (id == R.id.nav_awareness) {
+            Intent mainIntent = new Intent(this, AwarenessActivity.class);
             startActivity(mainIntent);
         }
 

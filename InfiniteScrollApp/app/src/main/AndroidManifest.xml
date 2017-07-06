@@ -42,8 +42,14 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".Activities.AwarenessActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity android:name=".Activities.Base.BaseActivity">
-    </activity>
+        </activity>
 
         <activity
             android:name=".Activities.AboutActivity"

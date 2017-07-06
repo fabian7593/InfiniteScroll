@@ -24,21 +24,21 @@ public class AboutActivity extends BaseDetailActivity {
 
         activity = addLayout(R.layout.activity_about);
 
-        final FrameLayout flHolder = (FrameLayout) activity.findViewById(R.id.frameLayout);
+         FrameLayout frameLayout = (FrameLayout) activity.findViewById(R.id.frameLayout);
 
         AboutView view = AboutBuilder.with(activity)
                 .setPhoto(R.drawable.profile)
-                .setCover(R.mipmap.profile_cover)
-                .setName("Your Full Name")
-                .setSubTitle("Mobile Developer")
-                .setBrief("I'm warmed of mobile technologies. Ideas maker, curious and nature lover.")
+                .setCover(R.drawable.bg_galaxy)
+                .setName(getString(R.string.about_name))
+                .setSubTitle(getString(R.string.about_sub_title))
+                .setBrief(getString(R.string.about_brief))
                 .setAppIcon(R.mipmap.ic_launcher)
                 .setAppName(R.string.app_name)
-                .addGooglePlayStoreLink("8002078663318221363")
-                .addGitHubLink("fabian7593")
-                .addEmailLink("fabian7593@gmail.com")
-                .addSkypeLink("fabianre7593")
-                .addYoutubeChannelLink("UCJnvvHb_vwMwbnZWplkHIfw")
+                .addGooglePlayStoreLink(getString(R.string.about_playstore))
+                .addGitHubLink(getString(R.string.about_gitlink))
+                .addEmailLink(getString(R.string.about_email))
+                .addSkypeLink(getString(R.string.about_skype))
+                .addYoutubeChannelLink(getString(R.string.about_youtube))
                 .addFiveStarsAction()
                 .setVersionNameAsAppSubTitle()
                 .addShareAction(R.string.app_name)
@@ -47,7 +47,7 @@ public class AboutActivity extends BaseDetailActivity {
                 .setShowAsCard(true)
                 .build();
 
-        flHolder.addView(view);
+        frameLayout.addView(view);
     }
 
 }
