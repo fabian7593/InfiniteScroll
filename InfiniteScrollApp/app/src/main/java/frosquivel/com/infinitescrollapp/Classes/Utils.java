@@ -148,11 +148,15 @@ public class Utils {
 
 
     public static void showSneakerDialog(Activity activity, String errorMessage){
-        Sneaker.with(activity)
+        try{
+            Sneaker.with(activity)
                 .setTitle(activity.getString(R.string.error_title))
                 .setMessage(errorMessage)
                 .setHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .sneakError();
+        }catch(Exception ev){
+            Toast.makeText(activity,activity.getString(R.string.error_title) + " " + errorMessage,Toast.LENGTH_LONG);
+        }
     }
 
 }

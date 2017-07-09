@@ -82,6 +82,19 @@
     <string name="about_skype">fabianre7593</string>
     <string name="about_youtube">UCJnvvHb_vwMwbnZWplkHIfw</string>
 
+    <!-- Awareness -->
+    <string name="awareness_01">Without Borders</string>
+    <string name="awareness_02">We are humans</string>
+    <string name="awareness_03">We are brothers</string>
+    <string name="awareness_04">We smile and cry</string>
+    <string name="awareness_05">By a flag, I will not kill</string>
+    <string name="awareness_06">Stop Xenofobia</string>
+    <string name="awareness_07">Stop Homofobia</string>
+    <string name="awareness_08">Stop Racism</string>
+    <string name="awareness_09">Stop Bullying</string>
+    <string name="awareness_10">Stop Hate!</string>
+    <string name="awareness_11">Please become aware...</string>
+
     <!-- Errors -->
     <string name="error_title">Error!</string>
     <string name="error_not_have_networking">Please review your internet connection.</string>

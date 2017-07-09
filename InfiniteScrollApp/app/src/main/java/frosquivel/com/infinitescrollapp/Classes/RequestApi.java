@@ -46,10 +46,14 @@ public class RequestApi {
                         public void onResponse(Call call, final Response response) throws IOException {
                             String res = response.body().string();
                             Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-                            ResponseModel responseModel = gson.fromJson(res, ResponseModel.class);
-                            infiniteScrollInterface.onSuccess(responseModel);
+
+                            if(response.code() != 200){
+                                infiniteScrollInterface.onFailure("Message: " + response.message() + "Code: " + response.code());
+                            }else{
+                                ResponseModel responseModel = gson.fromJson(res, ResponseModel.class);
+                                infiniteScrollInterface.onSuccess(responseModel);
+                            }
                         }
                     });
-
     }
 }

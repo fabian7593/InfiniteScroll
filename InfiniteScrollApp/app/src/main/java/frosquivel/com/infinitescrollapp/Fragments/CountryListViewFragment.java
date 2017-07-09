@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.irozon.sneaker.Sneaker;
 import com.konifar.fab_transformation.FabTransformation;
 
 import java.util.ArrayList;
@@ -131,7 +132,7 @@ public class CountryListViewFragment extends Fragment {
 
                 @Override
                 public void onFailure(String errorResponse){
-                    Utils.showSneakerDialog(activity, errorResponse);
+                    //Utils.showSneakerDialog(getActivity(), errorResponse);
                 }
             };
 
