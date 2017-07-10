@@ -40,7 +40,7 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
     public InfiniteScrollCallRequest(Activity activity, int currentPage, int minimunNumberRowLoadingMore) {
         scrollStatusCount=0;
         this.infiniteScrollObject = new InfiniteScrollObject(activity);
-        this.infiniteScrollObject.setCurrentPage(currentPage, false);
+        this.infiniteScrollObject.setCurrentPage(currentPage, true);
         this.infiniteScrollObject.setMinimunNumberRowLoadingMore(minimunNumberRowLoadingMore);
     }
 

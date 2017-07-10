@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import frosquivel.com.infinitescrollapp.Activities.AboutActivity;
 import frosquivel.com.infinitescrollapp.Activities.AwarenessActivity;
 import frosquivel.com.infinitescrollapp.Activities.PaperOnboardingActivity;
+import frosquivel.com.infinitescrollapp.Activities.SharedPreferenceActivity;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
 import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
 import frosquivel.com.infinitescrollapp.R;
@@ -127,6 +128,9 @@ public class BaseActivity extends AppCompatActivity
             startActivity(mainIntent);
         } else if (id == R.id.nav_awareness) {
             Intent mainIntent = new Intent(this, AwarenessActivity.class);
+            startActivity(mainIntent);
+        } else if (id == R.id.nav_settings) {
+            Intent mainIntent = new Intent(this, SharedPreferenceActivity.class);
             startActivity(mainIntent);
         }
 

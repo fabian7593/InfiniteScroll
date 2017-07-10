@@ -37,6 +37,4 @@ public class BaseDetailActivity extends AppCompatActivity {
 
         return this;
     }
-
-
 }

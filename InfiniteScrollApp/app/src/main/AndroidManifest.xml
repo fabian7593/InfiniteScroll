@@ -37,6 +37,12 @@
         </activity>
 
         <activity
+            android:name=".Activities.SharedPreferenceActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
             android:name=".Activities.PaperOnboardingActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

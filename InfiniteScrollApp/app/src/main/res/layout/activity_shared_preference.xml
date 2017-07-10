@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:numberpicker="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar_back_detail"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewRequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:gravity="center"
+                        android:text="@string/shared_preference_request_options_title"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x2"
+                        android:layout_weight="10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|bottom"
+                            android:layout_marginLeft="@dimen/normal_margin"
+                            android:layout_weight="4"
+                            android:gravity="left|bottom"
+                            android:text="@string/shared_preference_minimun_number_row_loading_label"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <com.rey.material.widget.Slider
+                            android:id="@+id/sliderMinimumRowNumber"
+                            style="@style/Material.Widget.Slider"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_weight="6"
+                            android:gravity="right"
+                            android:paddingLeft="@dimen/normal_margin"
+                            android:paddingRight="@dimen/normal_margin_x3"
+                            app:sl_discreteMode="true"
+                            app:sl_maxValue="15"
+                            app:sl_minValue="1"
+                            app:sl_stepValue="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x2"
+                        android:layout_weight="10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|bottom"
+                            android:layout_marginLeft="@dimen/normal_margin"
+                            android:layout_weight="4"
+                            android:gravity="left|bottom"
+                            android:text="@string/shared_preference_current_page_label"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+
+                        <com.travijuu.numberpicker.library.NumberPicker
+                            android:id="@+id/numberPickerCurrentPage"
+                            android:layout_width="130dp"
+                            android:layout_height="40dp"
+                            numberpicker:min="0"
+                            numberpicker:max="10"
+                            numberpicker:value="-5"
+                            numberpicker:unit="1"
+                            numberpicker:focusable="false"
+                            numberpicker:custom_layout="@layout/number_picker_page" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x2"
+                        android:layout_weight="10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|bottom"
+                            android:layout_marginLeft="@dimen/normal_margin"
+                            android:layout_weight="4"
+                            android:gravity="left|bottom"
+                            android:text="@string/shared_preference_minimun_number_row_loading_label"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <com.rey.material.widget.Slider
+                            android:id="@+id/sliderMaxLimitRequest"
+                            style="@style/Material.Widget.Slider"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_weight="6"
+                            android:gravity="right"
+                            android:paddingLeft="@dimen/normal_margin"
+                            android:paddingRight="@dimen/normal_margin_x3"
+                            app:sl_discreteMode="true"
+                            app:sl_maxValue="15"
+                            app:sl_minValue="1"
+                            app:sl_stepValue="1" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewRegionFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:gravity="center"
+                        android:text="@string/shared_preference_regions_filter_title"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <com.rey.material.widget.EditText
+                        android:id="@+id/txtRegion"
+                        style="@style/LightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x3"
+                        android:layout_marginRight="@dimen/normal_margin_x3"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:hint="@string/shared_preference_region_label"
+                        android:inputType="text" />
+
+                    <com.rey.material.widget.EditText
+                        android:id="@+id/txtSubRegion"
+                        style="@style/LightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x3"
+                        android:layout_marginRight="@dimen/normal_margin_x3"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:hint="@string/shared_preference_sub_region_label"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewIndividualFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:gravity="center"
+                        android:text="@string/shared_preference_individual_filter_title"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <com.rey.material.widget.EditText
+                        android:id="@+id/txtAlphaCode2"
+                        style="@style/LightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x3"
+                        android:layout_marginRight="@dimen/normal_margin_x3"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:hint="@string/shared_preference_alpha_code_2_label"
+                        android:inputType="text" />
+
+                    <com.rey.material.widget.EditText
+                        android:id="@+id/txtAlphaCode3"
+                        style="@style/LightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x3"
+                        android:layout_marginRight="@dimen/normal_margin_x3"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:hint="@string/shared_preference_alpha_code_3_label"
+                        android:inputType="text" />
+
+                    <com.rey.material.widget.EditText
+                        android:id="@+id/txtCurrencyName"
+                        style="@style/LightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x3"
+                        android:layout_marginRight="@dimen/normal_margin_x3"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:hint="@string/shared_preference_native_language_label"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:gravity="center"
+                        android:text="@string/shared_preference_size_area_title"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x2"
+                        android:layout_weight="10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|bottom"
+                            android:layout_marginLeft="@dimen/normal_margin"
+                            android:layout_weight="4"
+                            android:gravity="left|bottom"
+                            android:text="@string/shared_preference_area_label"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <com.appyvet.rangebar.RangeBar
+                            xmlns:custom="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/rangebarSize"
+                            android:layout_width="match_parent"
+                            android:layout_height="72dp"
+                            custom:tickStart="5"
+                            custom:tickInterval="1"
+                            custom:tickEnd="10"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

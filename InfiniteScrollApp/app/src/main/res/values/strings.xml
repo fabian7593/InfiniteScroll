@@ -36,6 +36,23 @@
     <string name="shared_preference_current_page">1</string>
     <string name="shared_preference_max_limit">25</string>
 
+    <string name="shared_preference_request_options_title">Request Options</string>
+    <string name="shared_preference_minimun_number_row_loading_label">Minimum row number</string>
+    <string name="shared_preference_current_page_label">Current Page</string>
+    <string name="shared_preference_max_limit_label">Max limit Object Response</string>
+
+    <string name="shared_preference_regions_filter_title">Regions Filter</string>
+    <string name="shared_preference_region_label">Region</string>
+    <string name="shared_preference_sub_region_label">Sub Region</string>
+
+    <string name="shared_preference_individual_filter_title">Individual Filter</string>
+    <string name="shared_preference_alpha_code_2_label">Alpha Code 2</string>
+    <string name="shared_preference_alpha_code_3_label">Alpha Code 3</string>
+    <string name="shared_preference_native_language_label">Currency Name</string>
+
+    <string name="shared_preference_size_area_title">Size Area</string>
+    <string name="shared_preference_area_label">Area range</string>
+
     <!-- onBoarding -->
     <string name="on_boarding_android_title">Android Development</string>
     <string name="on_boarding_ios_title">iOS Development</string>

@@ -7,4 +7,8 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="toolbar_button_margin">6dp</dimen>
+
+    <dimen name="normal_margin">10dp</dimen>
+    <dimen name="normal_margin_x2">20dp</dimen>
+    <dimen name="normal_margin_x3">30dp</dimen>
 </resources>

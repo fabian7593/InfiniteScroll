@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -30,6 +32,7 @@ import frosquivel.com.infinitescroll.Interface.InfiniteScrollImpl;
 import frosquivel.com.infinitescroll.Interface.InfiniteScrollInterface;
 import frosquivel.com.infinitescroll.Logic.InfiniteScrollCallRequest;
 import frosquivel.com.infinitescroll.Model.InfiniteScrollObject;
+import frosquivel.com.infinitescrollapp.Activities.SharedPreferenceActivity;
 import frosquivel.com.infinitescrollapp.Adapter.CountryAdapter;
 import frosquivel.com.infinitescrollapp.Classes.Const;
 import frosquivel.com.infinitescrollapp.Classes.RequestApi;
@@ -46,7 +49,6 @@ public class CountryListViewFragment extends Fragment {
 
     public InfiniteScrollAdapter adapter;
     private List<Object> objectList;
-    private final int numberOfRequest = 10;
     private ProgressBar progressBar;
     private ConstraintLayout listViewConstraint;
     private ListView lvItems;
@@ -78,8 +80,16 @@ public class CountryListViewFragment extends Fragment {
         progressBar.setVisibility(View.GONE);
         lvItems = (ListView) rootView.findViewById(R.id.listView);
         lvItems.addFooterView(footer);
-
         initUiComponents(rootView);
+
+
+        return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter = null;
 
         InfiniteScrollObject infiniteScrollObject = new InfiniteScrollObject(activity);
         infiniteScrollObject.setCurrentPage(1);
@@ -94,8 +104,6 @@ public class CountryListViewFragment extends Fragment {
         });
 
         resquestAPIMethod(1);
-
-        return rootView;
     }
 
     public int resquestAPIMethod(final int offset) {
@@ -108,7 +116,8 @@ public class CountryListViewFragment extends Fragment {
                     if (adapter != null) {
                         //if you need update the list view and your respective data
                         for (Country country : ((ResponseModel) responseModel).getResponse()) {
-                            objectList.add(country);
+                            if(!objectList.contains(country))
+                                objectList.add(country);
                         }
 
                         activity.runOnUiThread(new Runnable() {
@@ -124,7 +133,8 @@ public class CountryListViewFragment extends Fragment {
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                lvItems.setAdapter(adapter);
+                                if(adapter!=null)
+                                    lvItems.setAdapter(adapter);
                             }
                         });
                     }
@@ -137,7 +147,7 @@ public class CountryListViewFragment extends Fragment {
             };
 
             RequestApi.callCountryAPI(
-                    String.format(Const.C_URL_REQUEST_COUNTRYAPI, "60", String.valueOf(offset)),
+                    String.format(Const.C_URL_REQUEST_COUNTRYAPI, "15", String.valueOf(offset)),
                     activity, interfaceInfinite);
 
             if (responseModelStatic != null)
@@ -175,6 +185,20 @@ public class CountryListViewFragment extends Fragment {
             }
 
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_setting:
+                Intent mainIntent = new Intent(activity, SharedPreferenceActivity.class);
+                startActivity(mainIntent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void initUiComponents(View rootView){
