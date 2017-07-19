@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import frosquivel.com.infinitescrollapp.Classes.Const;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
 import frosquivel.com.infinitescrollapp.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -33,8 +34,19 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash_screen);
 
-        Utils.setInitialSharedPreference(this, true);
+        String isFirstTime = "";
+        boolean isFirstTimeBool = true;
+        try{
+            isFirstTime = Utils.getSharedPreference(this, Const.C_IS_FIRST_TIME);
+            isFirstTimeBool = Boolean.parseBoolean(isFirstTime);
+        }catch(Exception ex){
+            Utils.setSharedPreference(this, Const.C_IS_FIRST_TIME, "false");
+        }
 
+        if(isFirstTimeBool){
+            Utils.setInitialSharedPreference(this, true);
+        }
+        
         Thread timer= new Thread()
         {
             public void run()
@@ -57,23 +69,5 @@ public class SplashScreenActivity extends AppCompatActivity {
             }
         };
         timer.start();
-
-
-       /* Typeface typeface = Typeface.createFromAsset(getAssets(), "font/NEOTERICBold.ttf");
-
-        RotatingTextWrapper rotatingTextWrapper = (RotatingTextWrapper) findViewById(R.id.custom_switcher);
-        rotatingTextWrapper.setSize(35);
-        rotatingTextWrapper.setTypeface(typeface);
-
-        Rotatable rotatable = new Rotatable(Color.parseColor("#673AB7"),2000 ,
-                getString(R.string.splash_child_human), getString(R.string.splash_child_brothers));
-        rotatable.setSize(35);
-
-        rotatable.setAnimationDuration(500);
-        rotatable.setInterpolator(new BounceInterpolator());
-        rotatable.setTypeface(typeface);
-
-        rotatingTextWrapper.setContent(getString(R.string.splash_father_we_are),rotatable);*/
-
     }
 }

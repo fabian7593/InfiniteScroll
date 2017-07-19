@@ -39,10 +39,10 @@ public class Utils {
             setSharedPreference(context, Const.C_P_NAME, "");
 
         if(getSharedPreference(context, Const.C_P_REGION).equals("") || isDefaultValues)
-            setSharedPreference(context, Const.C_P_REGION, "");
+            setSharedPreference(context, Const.C_P_REGION, context.getString(R.string.shared_preference_region));
 
         if(getSharedPreference(context, Const.C_P_SUB_REGION).equals("") || isDefaultValues)
-            setSharedPreference(context, Const.C_P_SUB_REGION, "");
+            setSharedPreference(context, Const.C_P_SUB_REGION, context.getString(R.string.shared_preference_sub_region));
 
         if(getSharedPreference(context, Const.C_P_ALPHA_CODE_2).equals("") || isDefaultValues)
             setSharedPreference(context, Const.C_P_ALPHA_CODE_2, "");
@@ -57,10 +57,10 @@ public class Utils {
             setSharedPreference(context, Const.C_P_CURRENCY_CODE, "");
 
         if(getSharedPreference(context, Const.C_P_AREA_FROM).equals("") || isDefaultValues)
-            setSharedPreference(context, Const.C_P_AREA_FROM, "");
+            setSharedPreference(context, Const.C_P_AREA_FROM, context.getString(R.string.shared_preference_area_from));
 
         if(getSharedPreference(context, Const.C_P_AREA_TO).equals("") || isDefaultValues)
-            setSharedPreference(context, Const.C_P_AREA_TO, "");
+            setSharedPreference(context, Const.C_P_AREA_TO, context.getString(R.string.shared_preference_area_to));
     }
 
     //#Shared preference methods

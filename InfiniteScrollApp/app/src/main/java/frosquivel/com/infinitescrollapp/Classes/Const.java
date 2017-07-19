@@ -5,6 +5,8 @@ package frosquivel.com.infinitescrollapp.Classes;
  */
 
 public class Const {
+    public static final String C_IS_FIRST_TIME = "C_IS_FIRST_TIME";
+
     public static final String C_URL_REQUEST_COUNTRYAPI = "http://countryapi.gear.host/v1/Country/getCountries?pLimit=%s&pPage=%s";
     public static final String C_SHARED_PREFERENCES = "SCROLL_INFINITE_PREFERENCES";
 

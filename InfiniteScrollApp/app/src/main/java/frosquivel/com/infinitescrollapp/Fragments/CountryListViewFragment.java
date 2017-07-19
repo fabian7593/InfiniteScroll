@@ -82,7 +82,6 @@ public class CountryListViewFragment extends Fragment {
         lvItems.addFooterView(footer);
         initUiComponents(rootView);
 
-
         return rootView;
     }
 
@@ -189,12 +188,9 @@ public class CountryListViewFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.action_setting:
-                Intent mainIntent = new Intent(activity, SharedPreferenceActivity.class);
-                startActivity(mainIntent);
-                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
