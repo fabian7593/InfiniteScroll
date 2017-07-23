@@ -31,6 +31,7 @@ import frosquivel.com.infinitescroll.Adapter.InfiniteScrollAdapter;
 import frosquivel.com.infinitescroll.Interface.InfiniteScrollImpl;
 import frosquivel.com.infinitescroll.Interface.InfiniteScrollInterface;
 import frosquivel.com.infinitescroll.Logic.InfiniteScrollCallRequest;
+import frosquivel.com.infinitescroll.Model.InfiniteScrollBuilder;
 import frosquivel.com.infinitescroll.Model.InfiniteScrollObject;
 import frosquivel.com.infinitescrollapp.Activities.SharedPreferenceActivity;
 import frosquivel.com.infinitescrollapp.Adapter.CountryAdapter;
@@ -66,7 +67,7 @@ public class CountryListViewFragment extends Fragment {
     private FloatingActionButton fab;
 
     private Context context;
-    private Activity activity;
+    private static Activity activity;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_country_list_view, container, false);
@@ -86,14 +87,14 @@ public class CountryListViewFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        adapter = null;
+    public void onStart() {
+        super.onStart();
 
-        InfiniteScrollObject infiniteScrollObject = new InfiniteScrollObject(activity);
-        infiniteScrollObject.setCurrentPage(1);
-        infiniteScrollObject.setMinimunNumberRowLoadingMore(8);
-        infiniteScrollObject.setProgressBar(progressBar);
+        InfiniteScrollObject infiniteScrollObject = new InfiniteScrollBuilder(activity)
+                        .setProgressBar(progressBar)
+                        .setCurrentPage(Integer.parseInt(getValue(Const.C_CURRENT_PAGE)))
+                        .setMinimunNumberRowLoadingMore(Integer.parseInt(getValue(Const.C_MINIMUM_NUMBER_ROW_SHOW)))
+                        .build();
 
         lvItems.setOnScrollListener(new InfiniteScrollCallRequest(infiniteScrollObject) {
             @Override
@@ -102,7 +103,15 @@ public class CountryListViewFragment extends Fragment {
             }
         });
 
-        resquestAPIMethod(1);
+        resquestAPIMethod(Integer.parseInt(getValue(Const.C_CURRENT_PAGE)));
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        adapter = null;
+        lvItems.setAdapter(null);
     }
 
     public int resquestAPIMethod(final int offset) {
@@ -122,7 +131,10 @@ public class CountryListViewFragment extends Fragment {
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                adapter.notifyDataSetChanged();
+                                try{
+                                    adapter.notifyDataSetChanged();
+                                }catch(Exception ex){}
+
                             }
                         });
                     } else {
@@ -145,9 +157,19 @@ public class CountryListViewFragment extends Fragment {
                 }
             };
 
+
+            Utils.getSharedPreference(activity, Const.C_MAX_LIMIT);
+
             RequestApi.callCountryAPI(
-                    String.format(Const.C_URL_REQUEST_COUNTRYAPI, "15", String.valueOf(offset)),
+                    String.format(
+                            Const.C_URL_REQUEST_COUNTRYAPI,
+                            getValue(Const.C_MAX_LIMIT), offset, getValue(Const.C_P_NAME),
+                            getValue(Const.C_P_ALPHA_CODE_2), getValue(Const.C_P_ALPHA_CODE_3),
+                            getValue(Const.C_P_AREA_FROM), getValue(Const.C_P_AREA_TO),
+                            (getValue(Const.C_P_REGION).equals("All")) ? Const.C_EMPTY_STRING : getValue(Const.C_P_REGION),
+                            (getValue(Const.C_P_SUB_REGION).equals("All")) ? Const.C_EMPTY_STRING : getValue(Const.C_P_SUB_REGION)),
                     activity, interfaceInfinite);
+
 
             if (responseModelStatic != null)
                 return responseModelStatic.getResponse().size();
@@ -156,6 +178,10 @@ public class CountryListViewFragment extends Fragment {
         }else{
             return 0;
         }
+    }
+
+    private static String getValue(String constVar){
+        return Utils.getSharedPreference(activity, constVar);
     }
 
     @Override
@@ -186,6 +212,10 @@ public class CountryListViewFragment extends Fragment {
         });
     }
 
+
+
+
+    //Menu options
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);

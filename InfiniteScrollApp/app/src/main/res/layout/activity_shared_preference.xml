@@ -245,6 +245,18 @@
                         android:textStyle="bold" />
 
                     <com.rey.material.widget.EditText
+                        android:id="@+id/txtName"
+                        style="@style/LightEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:layout_marginLeft="@dimen/normal_margin_x3"
+                        android:layout_marginRight="@dimen/normal_margin_x3"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:hint="@string/shared_preference_country_name"
+                        android:inputType="text" />
+
+                    <com.rey.material.widget.EditText
                         android:id="@+id/txtAlphaCode2"
                         style="@style/LightEditText"
                         android:layout_width="match_parent"
@@ -332,9 +344,9 @@
                                 android:paddingRight="5dp"
                                 android:layout_marginLeft="15dp"
                                 app:sl_discreteMode="true"
-                                app:sl_maxValue="2000"
+                                app:sl_maxValue="18000000"
                                 app:sl_minValue="0"
-                                app:sl_stepValue="200" />
+                                app:sl_stepValue="100000" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -370,9 +382,9 @@
                                 android:paddingRight="5dp"
                                 android:layout_marginLeft="15dp"
                                 app:sl_discreteMode="true"
-                                app:sl_maxValue="2000"
+                                app:sl_maxValue="18000000"
                                 app:sl_minValue="0"
-                                app:sl_stepValue="200" />
+                                app:sl_stepValue="100000" />
                         </LinearLayout>
 
                     </LinearLayout>

@@ -26,17 +26,18 @@ public class InfiniteScrollObject {
 
     private Activity activity;
 
-    public InfiniteScrollObject(Activity activity){
-        this.minimunNumberRowLoadingMore = 3;
-        this.currentPage = 0;
-        this.previousTotalItemCount = 0;
-        this.loading = true;
-        this.progressBar = null;
+    InfiniteScrollObject(InfiniteScrollBuilder builder) {
+        this.progressBar = builder.getProgressBar();
+        this.minimunNumberRowLoadingMore = builder.getMinimunNumberRowLoadingMore();
+        this.currentPage = builder.getCurrentPage();
+        this.activity = builder.getActivity();
+
         this.firstVisibleItem = 0;
         this.visibleItemCount = 0;
         this.totalItemCount = 0;
         this.isFinalItem = 1;
-        this.activity = activity;
+        this.previousTotalItemCount = 0;
+        this.loading = true;
     }
 
     public Activity getActivity() {
@@ -59,24 +60,12 @@ public class InfiniteScrollObject {
         return progressBar;
     }
 
-    public void setProgressBar(ProgressBar progressBar) {
-        this.progressBar = progressBar;
-    }
-
     public int getMinimunNumberRowLoadingMore() {
         return minimunNumberRowLoadingMore;
     }
 
-    public void setMinimunNumberRowLoadingMore(int minimunNumberRowLoadingMore) {
-        this.minimunNumberRowLoadingMore = minimunNumberRowLoadingMore;
-    }
-
     public int getCurrentPage() {
         return currentPage;
-    }
-
-    public void setCurrentPage(int currentPage) {
-        this.currentPage = currentPage - 1;
     }
 
     public void setCurrentPage(int currentPage, boolean isFirst) {

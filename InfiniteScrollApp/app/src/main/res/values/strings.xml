@@ -36,7 +36,7 @@
     <string name="shared_preference_current_page">1</string>
     <string name="shared_preference_max_limit">25</string>
     <string name="shared_preference_area_from">0</string>
-    <string name="shared_preference_area_to">2000</string>
+    <string name="shared_preference_area_to">18000000</string>
     <string name="shared_preference_region">All</string>
     <string name="shared_preference_sub_region">All</string>
 
@@ -51,6 +51,7 @@
     <string name="shared_preference_sub_region_label">Sub Region</string>
 
     <string name="shared_preference_individual_filter_title">Individual Filter</string>
+    <string name="shared_preference_country_name">Country Name</string>
     <string name="shared_preference_alpha_code_2_label">Alpha Code 2</string>
     <string name="shared_preference_alpha_code_3_label">Alpha Code 3</string>
     <string name="shared_preference_native_language_label">Currency Name</string>

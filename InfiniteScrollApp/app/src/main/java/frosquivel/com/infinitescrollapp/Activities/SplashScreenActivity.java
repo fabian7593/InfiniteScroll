@@ -27,7 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("font/NEOTERICBold.ttf")
+                .setDefaultFontPath(Const.C_FONT_PATH)
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
@@ -38,13 +38,18 @@ public class SplashScreenActivity extends AppCompatActivity {
         boolean isFirstTimeBool = true;
         try{
             isFirstTime = Utils.getSharedPreference(this, Const.C_IS_FIRST_TIME);
-            isFirstTimeBool = Boolean.parseBoolean(isFirstTime);
+            if(isFirstTime.equals("")){
+                isFirstTimeBool = true;
+            }else{
+                isFirstTimeBool = Boolean.parseBoolean(isFirstTime);
+            }
         }catch(Exception ex){
             Utils.setSharedPreference(this, Const.C_IS_FIRST_TIME, "false");
         }
 
         if(isFirstTimeBool){
             Utils.setInitialSharedPreference(this, true);
+            Utils.setSharedPreference(this, Const.C_IS_FIRST_TIME, "false");
         }
         
         Thread timer= new Thread()

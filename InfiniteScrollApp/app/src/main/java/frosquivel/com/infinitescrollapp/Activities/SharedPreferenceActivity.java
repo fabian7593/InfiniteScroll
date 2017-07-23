@@ -2,7 +2,6 @@ package frosquivel.com.infinitescrollapp.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -23,14 +22,12 @@ import frosquivel.com.infinitescrollapp.R;
  */
 public class SharedPreferenceActivity extends BaseDetailActivity {
     private Activity activity;
-    private CardView cardViewRequest;
-    private CardView cardViewRegionFilter;
-    private CardView cardViewIndividualFilter;
-    private CardView cardViewSize;
     private EditText txtRegion;
     private EditText txtSubRegion;
     private EditText txtAlphaCode2;
     private EditText txtAlphaCode3;
+    private EditText txtName;
+
     private NumberPicker numberMinimumRowNumber;
     private Slider sliderMaxLimitRequest;
     private Slider sliderMinArea;
@@ -48,15 +45,12 @@ public class SharedPreferenceActivity extends BaseDetailActivity {
     }
 
     private void setUIComponents(){
-        cardViewRequest = (CardView) activity.findViewById(R.id.cardViewRequest);
-        cardViewRegionFilter = (CardView) activity.findViewById(R.id.cardViewRegionFilter);
-        cardViewIndividualFilter = (CardView) activity.findViewById(R.id.cardViewIndividualFilter);
-        cardViewSize = (CardView) activity.findViewById(R.id.cardViewSize);
 
         txtRegion = (EditText) activity.findViewById(R.id.txtRegion);
         txtSubRegion = (EditText) activity.findViewById(R.id.txtSubRegion);
         txtAlphaCode2 = (EditText) activity.findViewById(R.id.txtAlphaCode2);
         txtAlphaCode3 = (EditText) activity.findViewById(R.id.txtAlphaCode3);
+        txtName = (EditText) activity.findViewById(R.id.txtName);
 
         numberMinimumRowNumber = (NumberPicker) activity.findViewById(R.id.numberMinimumRowNumber);
         numberPickerCurrentPage = (NumberPicker) activity.findViewById(R.id.numberPickerCurrentPage);
@@ -82,6 +76,9 @@ public class SharedPreferenceActivity extends BaseDetailActivity {
 
         String alphaCode2 = Utils.getSharedPreference(activity, Const.C_P_ALPHA_CODE_2);
         txtAlphaCode2.setText(alphaCode2);
+
+        String name = Utils.getSharedPreference(activity, Const.C_P_NAME);
+        txtName.setText(name);
 
         String alphaCode3 = Utils.getSharedPreference(activity, Const.C_P_ALPHA_CODE_3);
         txtAlphaCode3.setText(alphaCode3);
@@ -129,6 +126,7 @@ public class SharedPreferenceActivity extends BaseDetailActivity {
                                             Utils.setSharedPreference(activity, Const.C_P_REGION, continents.get(which));
                                             subRegionByRegion(continents.get(which));
                                             txtSubRegion.setText("All");
+                                            Utils.setSharedPreference(activity, Const.C_P_SUB_REGION, "All");
                                         }
                                     }
                                     return true;
@@ -214,6 +212,23 @@ public class SharedPreferenceActivity extends BaseDetailActivity {
             default:
                 break;
         }
+    }
+
+    private void saveData(){
+        Utils.setSharedPreference(activity, Const.C_P_ALPHA_CODE_2, txtAlphaCode2.getText().toString());
+        Utils.setSharedPreference(activity, Const.C_P_ALPHA_CODE_3, txtAlphaCode3.getText().toString());
+        Utils.setSharedPreference(activity, Const.C_P_NAME, txtName.getText().toString());
+        Utils.setSharedPreference(activity, Const.C_MINIMUM_NUMBER_ROW_SHOW, String.valueOf(numberMinimumRowNumber.getValue()));
+        Utils.setSharedPreference(activity, Const.C_CURRENT_PAGE, String.valueOf(numberPickerCurrentPage.getValue()));
+        Utils.setSharedPreference(activity, Const.C_MAX_LIMIT, String.valueOf(sliderMaxLimitRequest.getValue()));
+        Utils.setSharedPreference(activity, Const.C_P_AREA_FROM, String.valueOf(sliderMinArea.getValue()));
+        Utils.setSharedPreference(activity, Const.C_P_AREA_TO, String.valueOf(sliderMaxArea.getValue()));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        saveData();
     }
 }
 

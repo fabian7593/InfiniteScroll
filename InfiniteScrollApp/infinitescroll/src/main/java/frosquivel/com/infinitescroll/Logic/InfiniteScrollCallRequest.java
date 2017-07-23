@@ -18,11 +18,6 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
     //int of value scroll state changes
     private static int scrollStatusCount;
 
-    public InfiniteScrollCallRequest(Activity activity) {
-        scrollStatusCount=0;
-        this.infiniteScrollObject = new InfiniteScrollObject(activity);
-    }
-
     /**
      * Constructor overoad with infinite scroll object
      * @param infiniteScrollObject
@@ -30,18 +25,6 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
     public InfiniteScrollCallRequest(InfiniteScrollObject infiniteScrollObject) {
         this.infiniteScrollObject = infiniteScrollObject;
         scrollStatusCount=0;
-    }
-
-    /**
-     * Constructor method overload, with current page and minimun number of rows that you need
-     * @param currentPage
-     * @param minimunNumberRowLoadingMore
-     */
-    public InfiniteScrollCallRequest(Activity activity, int currentPage, int minimunNumberRowLoadingMore) {
-        scrollStatusCount=0;
-        this.infiniteScrollObject = new InfiniteScrollObject(activity);
-        this.infiniteScrollObject.setCurrentPage(currentPage, true);
-        this.infiniteScrollObject.setMinimunNumberRowLoadingMore(minimunNumberRowLoadingMore);
     }
 
     //abstract method for call when you have the response service
@@ -97,6 +80,13 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
                     this.infiniteScrollObject.setCurrentPage(this.infiniteScrollObject.getCurrentPage() + 1, false);
                     //if the status is state fling gone the progress bar
                 } else if (scrollStatusCount == SCROLL_STATE_FLING) {
+                    goneProgressBar();
+                }
+            }
+
+            //if only have one group of request api (first time), hidden loading
+            if(this.infiniteScrollObject.isLoading()){
+                if(visibleItemCount < 14 & totalItemCount < 14){
                     goneProgressBar();
                 }
             }
