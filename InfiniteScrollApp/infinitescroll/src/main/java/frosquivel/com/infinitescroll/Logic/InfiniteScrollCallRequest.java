@@ -55,14 +55,16 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
             //is items is more that totalItemCount and not have loading more data
             //obtain the size of the last request and set the value of new loading
             int size = 0;
-            if (!this.infiniteScrollObject.isLoading() &&
-                    (firstVisibleItem + visibleItemCount + this.infiniteScrollObject.getMinimunNumberRowLoadingMore())
-                            >= totalItemCount) {
+            if(InfiniteScrollUtil.isNetworkAvailable(infiniteScrollObject.getActivity())) {
+                if (!this.infiniteScrollObject.isLoading() &&
+                        (firstVisibleItem + visibleItemCount + this.infiniteScrollObject.getMinimunNumberRowLoadingMore())
+                                >= totalItemCount) {
 
-                size = onLoadMoreData(
-                        this.infiniteScrollObject.getCurrentPage() + 1, totalItemCount, (ListView) view);
-                //set false if not have data or list have 0 items
-                this.infiniteScrollObject.setLoading((size > 0) ? true : false);
+                    size = onLoadMoreData(
+                            this.infiniteScrollObject.getCurrentPage() + 1, totalItemCount, (ListView) view);
+                    //set false if not have data or list have 0 items
+                    this.infiniteScrollObject.setLoading((size > 0) ? true : false);
+                }
             }
 
             //Hide or show the progress bar if is loading data or not
@@ -82,6 +84,8 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
                 } else if (scrollStatusCount == SCROLL_STATE_FLING) {
                     goneProgressBar();
                 }
+            }else{
+                this.infiniteScrollObject.setLoading(false);
             }
 
             //if only have one group of request api (first time), hidden loading
@@ -90,6 +94,8 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
                     goneProgressBar();
                 }
             }
+        }else{
+            this.infiniteScrollObject.setLoading(false);
         }
     }
 

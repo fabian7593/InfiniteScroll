@@ -20,6 +20,7 @@ import frosquivel.com.infinitescrollapp.Activities.AwarenessActivity;
 import frosquivel.com.infinitescrollapp.Activities.PaperOnboardingActivity;
 import frosquivel.com.infinitescrollapp.Activities.SharedPreferenceActivity;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
+import frosquivel.com.infinitescrollapp.Fragments.CountryFragmentBase;
 import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
 import frosquivel.com.infinitescrollapp.R;
 
@@ -82,7 +83,8 @@ public class BaseActivity extends AppCompatActivity
             }
         });
 
-        chargeFirstFragment();
+        Utils.chargeFragments(new CountryListViewFragment(),
+                getFragmentManager(), R.layout.fragment_country_list_view);
     }
 
     @Override
@@ -93,15 +95,6 @@ public class BaseActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
             finish();
-        }
-    }
-
-    private void chargeFirstFragment(){
-        Fragment fragment = null;
-        fragment = new CountryListViewFragment();
-        if(fragment != null){
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
         }
     }
 

@@ -1,6 +1,8 @@
 package frosquivel.com.infinitescrollapp.Classes;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +10,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -156,6 +159,20 @@ public class Utils {
                 .sneakError();
         }catch(Exception ev){
             Toast.makeText(activity,activity.getString(R.string.error_title) + " " + errorMessage,Toast.LENGTH_LONG);
+        }
+    }
+
+
+    public static void chargeFragments(Fragment fragmentChange, FragmentManager fragmentManagerParam, int Rlayout){
+        Fragment fragment = null;
+        fragment = fragmentChange;
+
+        if(fragment != null){
+            Bundle args = new Bundle();
+            args.putInt("R.Layout", Rlayout);
+            fragment.setArguments(args);
+            FragmentManager fragmentManager = fragmentManagerParam;
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
         }
     }
 
