@@ -6,7 +6,7 @@ import android.widget.AbsListView;
  * Created by Fabian on 02/06/2017.
  */
 
-public class InfiniteScroll implements AbsListView.OnScrollListener{
+public class InfiniteScrollList implements AbsListView.OnScrollListener{
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
     {}

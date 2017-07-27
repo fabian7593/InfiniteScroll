@@ -1,22 +1,23 @@
 package frosquivel.com.infinitescrollapp.Fragments;
 
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import frosquivel.com.infinitescroll.Adapter.InfiniteScrollAdapter;
 import frosquivel.com.infinitescroll.Interface.InfiniteScrollImpl;
 import frosquivel.com.infinitescroll.Interface.InfiniteScrollInterface;
-import frosquivel.com.infinitescroll.Logic.InfiniteListOnScrollListener;
-import frosquivel.com.infinitescroll.Model.InfiniteScrollBuilder;
-import frosquivel.com.infinitescroll.Model.InfiniteScrollObject;
 import frosquivel.com.infinitescrollapp.Adapter.CountryAdapter;
+import frosquivel.com.infinitescrollapp.Adapter.CountryRecyclerAdapter;
 import frosquivel.com.infinitescrollapp.Classes.Const;
 import frosquivel.com.infinitescrollapp.Classes.RequestApi;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
@@ -25,15 +26,15 @@ import frosquivel.com.infinitescrollapp.Models.ResponseModel;
 import frosquivel.com.infinitescrollapp.R;
 
 /**
- * Created by Fabian on 24/07/2017.
+ * Created by Fabian on 26/07/2017.
  */
 
-public class CountryListViewFragment extends CountryFragmentBase{
+public class CountryRecyclerViewFragment extends CountryFragmentBase {
 
-    public InfiniteScrollAdapter adapter;
     private List<Object> objectList;
     private ProgressBar progressBar;
-    private ListView lvItems;
+    private RecyclerView recyclerView;
+    private CountryRecyclerAdapter adapter;
     private static ResponseModel responseModelStatic;
 
     @Override
@@ -44,41 +45,51 @@ public class CountryListViewFragment extends CountryFragmentBase{
         View footer = activity.getLayoutInflater().inflate(R.layout.progress_bar, null);
         progressBar = (ProgressBar) footer.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-        lvItems = (ListView) rootView.findViewById(R.id.listView);
-        lvItems.addFooterView(footer);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+       // recyclerView.addFooterView(footer);
+
+
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(activity);
+        recyclerView.setLayoutManager(mLayoutManager);
+      //  recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+
 
         return rootView;
     }
 
 
-    @Override
+
     public void onStart() {
         super.onStart();
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        InfiniteScrollObject infiniteScrollObject = new InfiniteScrollBuilder(activity)
-                .setProgressBar(progressBar)
-                .setCurrentPage(Integer.parseInt(getValue(Const.C_CURRENT_PAGE)))
-                .setMinimunNumberRowLoadingMore(Integer.parseInt(getValue(Const.C_MINIMUM_NUMBER_ROW_SHOW)))
-                .build();
+        resquestAPIMethod(1);
 
-        lvItems.setOnScrollListener(new InfiniteListOnScrollListener(infiniteScrollObject) {
+      /*  recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
-            public int onLoadMoreData(int page, int totalItemsCount, ListView view) {
-                return resquestAPIMethod(page);
+            public void onClick(View view, int position) {
+               // Movie movie = movieList.get(position);
+               // Toast.makeText(getApplicationContext(), movie.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
             }
-        });
 
-        resquestAPIMethod(Integer.parseInt(getValue(Const.C_CURRENT_PAGE)));
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));*/
     }
+
 
     @Override
     public void onStop() {
         super.onStop();
 
         adapter = null;
-        lvItems.setAdapter(null);
-        lvItems.setOnScrollListener(null);
+        recyclerView.setAdapter(null);
+        recyclerView.setOnScrollListener(null);
     }
+
 
     public int resquestAPIMethod(final int offset) {
         if(Utils.isNetworkAvailable(activity)) {
@@ -106,12 +117,12 @@ public class CountryListViewFragment extends CountryFragmentBase{
                     } else {
                         //if not have adapter, init this and set adapter in listview
                         objectList = new ArrayList<Object>(((ResponseModel) responseModel).getResponse());
-                        adapter = new CountryAdapter(activity, objectList, R.layout.row_item_list_view);
+                        adapter = new CountryRecyclerAdapter(objectList, activity);
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 if(adapter!=null)
-                                    lvItems.setAdapter(adapter);
+                                    recyclerView.setAdapter(adapter);
                             }
                         });
                     }
@@ -122,7 +133,6 @@ public class CountryListViewFragment extends CountryFragmentBase{
                     //Utils.showSneakerDialog(getActivity(), errorResponse);
                 }
             };
-
 
             Utils.getSharedPreference(activity, Const.C_MAX_LIMIT);
 

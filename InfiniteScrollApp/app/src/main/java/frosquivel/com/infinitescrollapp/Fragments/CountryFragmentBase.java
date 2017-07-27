@@ -2,14 +2,11 @@ package frosquivel.com.infinitescrollapp.Fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,28 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
 
-import com.irozon.sneaker.Sneaker;
 import com.konifar.fab_transformation.FabTransformation;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import frosquivel.com.infinitescroll.Adapter.InfiniteScrollAdapter;
-import frosquivel.com.infinitescroll.Interface.InfiniteScrollImpl;
-import frosquivel.com.infinitescroll.Interface.InfiniteScrollInterface;
-import frosquivel.com.infinitescroll.Logic.InfiniteScrollCallRequest;
-import frosquivel.com.infinitescroll.Model.InfiniteScrollBuilder;
-import frosquivel.com.infinitescroll.Model.InfiniteScrollObject;
 import frosquivel.com.infinitescrollapp.Activities.SharedPreferenceActivity;
-import frosquivel.com.infinitescrollapp.Adapter.CountryAdapter;
-import frosquivel.com.infinitescrollapp.Classes.Const;
-import frosquivel.com.infinitescrollapp.Classes.RequestApi;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
-import frosquivel.com.infinitescrollapp.Models.Country;
-import frosquivel.com.infinitescrollapp.Models.ResponseModel;
 import frosquivel.com.infinitescrollapp.R;
 
 /**
@@ -62,12 +42,13 @@ public class CountryFragmentBase extends Fragment {
 
     private Context context;
     protected static Activity activity;
-    public static int Rlayout;
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_country_list_view, container, false);
+        int chargeLayout = getArguments().getInt("R.Layout");
+        final View rootView = inflater.inflate(chargeLayout, container, false);
         context = rootView.getContext();
         activity = getActivity();
 

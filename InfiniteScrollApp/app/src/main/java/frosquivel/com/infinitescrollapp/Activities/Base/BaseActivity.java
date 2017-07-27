@@ -22,6 +22,7 @@ import frosquivel.com.infinitescrollapp.Activities.SharedPreferenceActivity;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
 import frosquivel.com.infinitescrollapp.Fragments.CountryFragmentBase;
 import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
+import frosquivel.com.infinitescrollapp.Fragments.CountryRecyclerViewFragment;
 import frosquivel.com.infinitescrollapp.R;
 
 /**
@@ -83,8 +84,11 @@ public class BaseActivity extends AppCompatActivity
             }
         });
 
-        Utils.chargeFragments(new CountryListViewFragment(),
-                getFragmentManager(), R.layout.fragment_country_list_view);
+       // Utils.chargeFragments(new CountryListViewFragment(),
+               // getFragmentManager(), R.layout.fragment_country_list_view);
+
+        Utils.chargeFragments(new CountryRecyclerViewFragment(),
+                 getFragmentManager(), R.layout.fragment_country_recycler_view);
     }
 
     @Override

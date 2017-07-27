@@ -1,6 +1,5 @@
 package frosquivel.com.infinitescroll.Logic;
 
-import android.app.Activity;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
@@ -12,7 +11,7 @@ import frosquivel.com.infinitescroll.Utils.InfiniteScrollUtil;
  * Created by Fabian on 02/06/2017.
  */
 
-public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
+public abstract class InfiniteListOnScrollListener extends InfiniteScrollList {
 
     protected InfiniteScrollObject infiniteScrollObject;
     //int of value scroll state changes
@@ -22,7 +21,7 @@ public abstract class InfiniteScrollCallRequest extends InfiniteScroll {
      * Constructor overoad with infinite scroll object
      * @param infiniteScrollObject
      */
-    public InfiniteScrollCallRequest(InfiniteScrollObject infiniteScrollObject) {
+    public InfiniteListOnScrollListener(InfiniteScrollObject infiniteScrollObject) {
         this.infiniteScrollObject = infiniteScrollObject;
         scrollStatusCount=0;
     }
