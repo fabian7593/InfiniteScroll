@@ -16,6 +16,9 @@ import java.util.List;
 
 import frosquivel.com.infinitescroll.Interface.InfiniteScrollImpl;
 import frosquivel.com.infinitescroll.Interface.InfiniteScrollInterface;
+import frosquivel.com.infinitescroll.Logic.InfiniteRecyclerOnScrollListener;
+import frosquivel.com.infinitescroll.Model.InfiniteScrollBuilder;
+import frosquivel.com.infinitescroll.Model.InfiniteScrollObject;
 import frosquivel.com.infinitescrollapp.Adapter.CountryAdapter;
 import frosquivel.com.infinitescrollapp.Adapter.CountryRecyclerAdapter;
 import frosquivel.com.infinitescrollapp.Classes.Const;
@@ -50,8 +53,7 @@ public class CountryRecyclerViewFragment extends CountryFragmentBase {
 
 
         recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(activity);
-        recyclerView.setLayoutManager(mLayoutManager);
+
       //  recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
 
@@ -62,22 +64,29 @@ public class CountryRecyclerViewFragment extends CountryFragmentBase {
 
     public void onStart() {
         super.onStart();
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
 
         resquestAPIMethod(1);
 
-      /*  recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-               // Movie movie = movieList.get(position);
-               // Toast.makeText(getApplicationContext(), movie.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
-            }
+        InfiniteScrollObject infiniteScrollObject = new InfiniteScrollBuilder(activity)
+               // .setProgressBar(progressBar)
+                .setCurrentPage(Integer.parseInt(getValue(Const.C_CURRENT_PAGE)))
+                .setMinimunNumberRowLoadingMore(Integer.parseInt(getValue(Const.C_MINIMUM_NUMBER_ROW_SHOW)))
+                .build();
 
-            @Override
-            public void onLongClick(View view, int position) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
 
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.addOnScrollListener(new InfiniteRecyclerOnScrollListener(linearLayoutManager, infiniteScrollObject) {
+            @Override
+            public int onLoadMore(int currentPage, int totalItemsCount) {
+                // do something...
+                resquestAPIMethod(currentPage);
+                return 0;
             }
-        }));*/
+        });
+
     }
 
 

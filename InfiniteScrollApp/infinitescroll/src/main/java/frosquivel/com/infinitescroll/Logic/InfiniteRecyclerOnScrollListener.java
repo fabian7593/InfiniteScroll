@@ -3,53 +3,55 @@ package frosquivel.com.infinitescroll.Logic;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import frosquivel.com.infinitescroll.Model.InfiniteScrollObject;
+import frosquivel.com.infinitescroll.Utils.InfiniteScrollUtil;
+
 /**
  * Created by Fabian on 26/07/2017.
  */
 
 public abstract class InfiniteRecyclerOnScrollListener extends InfiniteScrollRecycler{
 
-    public static String TAG = InfiniteRecyclerOnScrollListener.class.getSimpleName();
 
-    private int previousTotal = 0; // The total number of items in the dataset after the last load
-    private boolean loading = true; // True if we are still waiting for the last set of data to load.
-    private int visibleThreshold = 5; // The minimum amount of items to have below your current scroll position before loading more.
-    int firstVisibleItem, visibleItemCount, totalItemCount;
-
-    private int current_page = 1;
-
+    protected InfiniteScrollObject infiniteScrollObject;
     private LinearLayoutManager mLinearLayoutManager;
 
-    public InfiniteRecyclerOnScrollListener(LinearLayoutManager linearLayoutManager) {
+    public InfiniteRecyclerOnScrollListener(LinearLayoutManager linearLayoutManager, InfiniteScrollObject infiniteScrollObject) {
         this.mLinearLayoutManager = linearLayoutManager;
+        this.infiniteScrollObject =  infiniteScrollObject;
+
+        this.infiniteScrollObject.setLoading(true);
+        this.infiniteScrollObject.setPreviousTotalItemCount(0);
     }
 
     @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
 
-        visibleItemCount = recyclerView.getChildCount();
-        totalItemCount = mLinearLayoutManager.getItemCount();
-        firstVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
+        this.infiniteScrollObject.setVisibleItemCount(recyclerView.getChildCount());
+        this.infiniteScrollObject.setTotalItemCount(mLinearLayoutManager.getItemCount());
+        this.infiniteScrollObject.setFirstVisibleItem(mLinearLayoutManager.findFirstVisibleItemPosition());
 
-        if (loading) {
-            if (totalItemCount > previousTotal) {
-                loading = false;
-                previousTotal = totalItemCount;
+
+        if (this.infiniteScrollObject.isLoading()) {
+            if (this.infiniteScrollObject.getTotalItemCount() > this.infiniteScrollObject.getPreviousTotalItemCount()) {
+                this.infiniteScrollObject.setLoading(false);
+                this.infiniteScrollObject.setPreviousTotalItemCount(this.infiniteScrollObject.getTotalItemCount());
             }
         }
-        if (!loading && (totalItemCount - visibleItemCount)
-                <= (firstVisibleItem + visibleThreshold)) {
+
+        int size = 0;
+        if (!this.infiniteScrollObject.isLoading() && (this.infiniteScrollObject.getTotalItemCount() - this.infiniteScrollObject.getVisibleItemCount())
+                <= (this.infiniteScrollObject.getFirstVisibleItem() + this.infiniteScrollObject.getMinimunNumberRowLoadingMore())) {
             // End has been reached
-
-            // Do something
-            current_page++;
-
-            onLoadMore(current_page);
-
-            loading = true;
+            if(InfiniteScrollUtil.isNetworkAvailable(infiniteScrollObject.getActivity())) {
+                this.infiniteScrollObject.setCurrentPage(this.infiniteScrollObject.getCurrentPage() + 1, false);
+                size =  onLoadMore(this.infiniteScrollObject.getCurrentPage(), this.infiniteScrollObject.getTotalItemCount());
+                //this.infiniteScrollObject.setLoading(true);
+                this.infiniteScrollObject.setLoading((size > 0) ? true : false);
+            }
         }
     }
 
-    public abstract void onLoadMore(int current_page);
+    public abstract int onLoadMore(int currentPage, int totalItemsCount);
 }
