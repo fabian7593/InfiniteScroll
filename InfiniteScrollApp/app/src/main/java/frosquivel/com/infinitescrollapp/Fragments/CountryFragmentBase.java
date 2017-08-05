@@ -42,7 +42,7 @@ public class CountryFragmentBase extends Fragment {
 
     private Context context;
     protected static Activity activity;
-
+    protected static Menu menu;
 
 
     @Override
@@ -62,6 +62,9 @@ public class CountryFragmentBase extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_search, menu);
+
+       // MenuItem item = menu.findItem(R.id.action_list);
+       // item.setVisible(false);
     }
 
 
@@ -75,6 +78,18 @@ public class CountryFragmentBase extends Fragment {
             case R.id.action_settings:
                 Intent mainIntent = new Intent(activity, SharedPreferenceActivity.class);
                 startActivity(mainIntent);
+                return true;
+
+            case R.id.action_recycler:
+                Utils.chargeFragments(new CountryRecyclerViewFragment(),
+                        getFragmentManager(), R.layout.fragment_country_recycler_view);
+
+
+                return true;
+
+            case R.id.action_list:
+                Utils.chargeFragments(new CountryListViewFragment(),
+                        getFragmentManager(), R.layout.fragment_country_list_view);
                 return true;
 
             default:

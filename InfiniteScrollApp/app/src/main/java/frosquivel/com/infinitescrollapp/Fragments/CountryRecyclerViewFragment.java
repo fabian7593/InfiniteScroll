@@ -45,60 +45,40 @@ public class CountryRecyclerViewFragment extends CountryFragmentBase {
 
         final View rootView = super.onCreateView(inflater,container,savedInstanceState);
         //Create the relation of your layout and your progress bar
-        View footer = activity.getLayoutInflater().inflate(R.layout.progress_bar, null);
-        progressBar = (ProgressBar) footer.findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-       // recyclerView.addFooterView(footer);
-
-
         recyclerView.setHasFixedSize(true);
-
-      //  recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-
-
         return rootView;
     }
-
-
 
     public void onStart() {
         super.onStart();
 
-
         resquestAPIMethod(1);
 
         InfiniteScrollObject infiniteScrollObject = new InfiniteScrollBuilder(activity)
-               // .setProgressBar(progressBar)
+                .setProgressBar(progressBar)
                 .setCurrentPage(Integer.parseInt(getValue(Const.C_CURRENT_PAGE)))
                 .setMinimunNumberRowLoadingMore(Integer.parseInt(getValue(Const.C_MINIMUM_NUMBER_ROW_SHOW)))
                 .build();
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addOnScrollListener(new InfiniteRecyclerOnScrollListener(linearLayoutManager, infiniteScrollObject) {
+        recyclerView.addOnScrollListener(new InfiniteRecyclerOnScrollListener(recyclerView, activity, infiniteScrollObject) {
             @Override
             public int onLoadMore(int currentPage, int totalItemsCount) {
-                // do something...
-                resquestAPIMethod(currentPage);
-                return 0;
+                return resquestAPIMethod(currentPage);
             }
         });
 
     }
 
-
     @Override
     public void onStop() {
         super.onStop();
-
         adapter = null;
         recyclerView.setAdapter(null);
-        recyclerView.setOnScrollListener(null);
     }
-
 
     public int resquestAPIMethod(final int offset) {
         if(Utils.isNetworkAvailable(activity)) {
@@ -139,7 +119,7 @@ public class CountryRecyclerViewFragment extends CountryFragmentBase {
 
                 @Override
                 public void onFailure(String errorResponse){
-                    //Utils.showSneakerDialog(getActivity(), errorResponse);
+                    Utils.showSneakerDialog(activity, errorResponse);
                 }
             };
 

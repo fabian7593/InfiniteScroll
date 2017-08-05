@@ -6,9 +6,15 @@ package frosquivel.com.infinitescroll.Interface;
 
 public class InfiniteScrollImpl implements InfiniteScrollInterface {
 
-    @Override
-    public void onSuccess(Object responseObject){}
+    public InfiniteScrollImpl (){}
 
     @Override
-    public void onFailure(String errorResponse){}
+    public void onSuccess(Object responseObject){
+
+    }
+
+    @Override
+    public void onFailure(String errorResponse){
+
+    }
 }

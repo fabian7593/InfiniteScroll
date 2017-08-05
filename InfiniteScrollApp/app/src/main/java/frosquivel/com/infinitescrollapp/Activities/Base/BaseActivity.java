@@ -84,11 +84,11 @@ public class BaseActivity extends AppCompatActivity
             }
         });
 
-       // Utils.chargeFragments(new CountryListViewFragment(),
-               // getFragmentManager(), R.layout.fragment_country_list_view);
+        Utils.chargeFragments(new CountryListViewFragment(),
+                getFragmentManager(), R.layout.fragment_country_list_view);
 
-        Utils.chargeFragments(new CountryRecyclerViewFragment(),
-                 getFragmentManager(), R.layout.fragment_country_recycler_view);
+        //Utils.chargeFragments(new CountryRecyclerViewFragment(),
+              //   getFragmentManager(), R.layout.fragment_country_recycler_view);
     }
 
     @Override

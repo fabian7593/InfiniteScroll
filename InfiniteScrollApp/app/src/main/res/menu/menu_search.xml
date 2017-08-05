@@ -1,6 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".Activities.MainActivity">
+
+    <item
+        android:id="@+id/action_list"
+        android:icon="@drawable/ic_list"
+        android:title="ListView"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_recycler"
+        android:icon="@drawable/ic_recycler"
+        android:title="RecylerView"
+        app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings_white"

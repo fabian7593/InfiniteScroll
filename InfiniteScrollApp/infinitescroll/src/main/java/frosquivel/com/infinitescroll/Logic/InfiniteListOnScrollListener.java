@@ -119,7 +119,8 @@ public abstract class InfiniteListOnScrollListener extends InfiniteScrollList {
     //hide the progress bar
     private void goneProgressBar(){
         try{
-            this.infiniteScrollObject.getProgressBar().setVisibility(View.GONE);
+            if(this.infiniteScrollObject.getProgressBar()!=null)
+                this.infiniteScrollObject.getProgressBar().setVisibility(View.GONE);
         }catch(Exception e){}
     }
 
