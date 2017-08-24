@@ -1,12 +1,16 @@
 package frosquivel.com.infinitescrollapp.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +20,8 @@ import frosquivel.com.infinitescroll.Interface.InfiniteScrollInterface;
 import frosquivel.com.infinitescroll.Logic.InfiniteListOnScrollListener;
 import frosquivel.com.infinitescroll.Model.InfiniteScrollBuilder;
 import frosquivel.com.infinitescroll.Model.InfiniteScrollObject;
+import frosquivel.com.infinitescrollapp.Activities.CountryDetailActivity;
+import frosquivel.com.infinitescrollapp.Activities.PaperOnboardingActivity;
 import frosquivel.com.infinitescrollapp.Adapter.CountryAdapter;
 import frosquivel.com.infinitescrollapp.Classes.Const;
 import frosquivel.com.infinitescrollapp.Classes.RequestApi;
@@ -65,6 +71,19 @@ public class CountryListViewFragment extends CountryFragmentBase{
             @Override
             public int onLoadMoreData(int page, int totalItemsCount, ListView view) {
                 return resquestAPIMethod(page);
+            }
+        });
+
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
+
+                Intent mainIntent = new Intent(activity, CountryDetailActivity.class);
+                Bundle bundle = new Bundle();
+                Country country = (Country) objectList.get(position);
+                bundle.putSerializable("Country", country);
+                mainIntent.putExtras(bundle);
+                startActivity(mainIntent);
             }
         });
 

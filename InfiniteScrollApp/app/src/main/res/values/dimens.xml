@@ -11,4 +11,11 @@
     <dimen name="normal_margin">10dp</dimen>
     <dimen name="normal_margin_x2">20dp</dimen>
     <dimen name="normal_margin_x3">30dp</dimen>
+
+    <dimen name="h1">35sp</dimen>
+    <dimen name="h2">30sp</dimen>
+    <dimen name="h3">25sp</dimen>
+    <dimen name="h4">20sp</dimen>
+    <dimen name="h5">15sp</dimen>
+    <dimen name="p">12sp</dimen>
 </resources>

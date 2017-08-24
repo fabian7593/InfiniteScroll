@@ -37,4 +37,46 @@ public class BaseDetailActivity extends AppCompatActivity {
 
         return this;
     }
+
+
+    protected Activity addLayout(int layout, int toolbarId ){
+        this.setContentView(layout);
+        Toolbar toolbar = (Toolbar) this.findViewById(toolbarId);
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        return this;
+    }
+
+
+
+    protected Activity addLayout(int layout, int toolbarId, String titleName){
+        this.setContentView(layout);
+        Toolbar toolbar = (Toolbar) this.findViewById(toolbarId);
+        toolbar.setTitle(titleName);
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        return this;
+    }
+
+
 }

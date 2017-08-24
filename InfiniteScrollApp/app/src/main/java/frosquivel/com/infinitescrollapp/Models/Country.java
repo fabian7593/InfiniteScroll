@@ -1,10 +1,12 @@
 package frosquivel.com.infinitescrollapp.Models;
 
+import java.io.Serializable;
+
 /**
  * Created by Fabian on 02/06/2017.
  */
 
-public class Country {
+public class Country implements Serializable{
 
     private String Name;
     private String Alpha2Code;
