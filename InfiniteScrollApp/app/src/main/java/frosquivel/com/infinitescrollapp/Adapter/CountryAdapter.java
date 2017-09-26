@@ -25,8 +25,8 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * Created by Fabian on 02/06/2017.
- */
 
+ */
 public class CountryAdapter extends InfiniteScrollAdapter  {
 
     private int rowLayout;

@@ -14,8 +14,8 @@
     <color name="light_blue_500">#673AB7</color>
 
     <color name="color_transparent">#00FFFFFF</color>
-    <color name="colorBlack">#616161</color>
-    <color name="colorGray">#9E9E9E</color>
+    <color name="colorBlack">#212121</color>
+    <color name="colorGray">#616161</color>
 
     <color name="onboarding_01">#e53935</color>
     <color name="onboarding_02">#D81B60</color>

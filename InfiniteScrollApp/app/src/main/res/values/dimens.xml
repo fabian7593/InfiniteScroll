@@ -8,6 +8,7 @@
 
     <dimen name="toolbar_button_margin">6dp</dimen>
 
+    <dimen name="mini_margin">5dp</dimen>
     <dimen name="normal_margin">10dp</dimen>
     <dimen name="normal_margin_x2">20dp</dimen>
     <dimen name="normal_margin_x3">30dp</dimen>

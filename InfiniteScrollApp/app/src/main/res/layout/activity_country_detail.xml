@@ -60,11 +60,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/normal_margin_x2"
                 android:gravity="center"
-                android:textColor="@color/colorGray"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/h1"
-                android:textStyle="bold"
-                android:layout_margin="@dimen/normal_margin"/>
+                />
+
+            <TextView
+                android:id="@+id/txtNativeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/h5"
+                android:text="test for native name"
+                android:textColor="@color/colorAccent"/>
+
+            <TextView
+                android:id="@+id/txtRegionAndSubRegion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/normal_margin"
+                android:textSize="@dimen/h4"
+                android:text="Eastern Europe"
+                android:textColor="@color/indigo_500"/>
+
+
+            <ListView
+                android:id="@+id/listViewCountryDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,30 +104,31 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:orientation="vertical"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtValueArea"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/normal_margin"
-                        android:textSize="@dimen/h2"
-                        android:textStyle="bold"
-                        android:text="118"
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:layout_marginTop="@dimen/mini_margin"
+                        android:gravity="center"
+                        android:text="118"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/h2"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtTitleArea"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/h4"
-                        android:text="Area"
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:text="Area"
+                        android:textSize="@dimen/h5" />
 
                 </LinearLayout>
 
@@ -106,73 +136,167 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:orientation="vertical"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtValueNumericCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/normal_margin"
-                        android:textSize="@dimen/h2"
-                        android:textStyle="bold"
-                        android:text="22891"
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:layout_marginTop="@dimen/mini_margin"
+                        android:gravity="center"
+                        android:text="22891"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/h2"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtTitleNumericCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/h4"
-                        android:text="Numeric Code"
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:text="Numeric Code"
+                        android:textSize="@dimen/h5" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:orientation="vertical"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtValueCurrencyCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/normal_margin"
-                        android:textSize="@dimen/h2"
-                        android:textStyle="bold"
-                        android:text="22891"
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:layout_marginTop="@dimen/mini_margin"
+                        android:gravity="center"
+                        android:text="22891"
+                        android:textSize="@dimen/h2"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtTitleCurrencyCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/h4"
-                        android:text="Currency"
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:text="Currency"
+                        android:textSize="@dimen/h5" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/txtTitleDescription"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lineSpacingExtra="8dp"
-                android:layout_margin="@dimen/normal_margin"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtAlphaCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/mini_margin"
+                        android:gravity="center"
+                        android:text="AG - ATG"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/h2"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Alpha Code"
+                        android:textSize="@dimen/h5" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtCurrencyCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/mini_margin"
+                        android:gravity="center"
+                        android:text="XCD"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/h2"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Currency Code"
+                        android:textSize="@dimen/h5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtNativeLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/mini_margin"
+                        android:gravity="center"
+                        android:text="ENG"
+                        android:textSize="@dimen/h2"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Native Language"
+                        android:textSize="@dimen/h5" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

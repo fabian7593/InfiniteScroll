@@ -32,4 +32,7 @@ public class Const {
     public static final String C_P_CURRENCY_CODE = "C_P_CURRENCY_CODE";
     public static final String C_P_AREA_FROM = "C_P_AREA_FROM";
     public static final String C_P_AREA_TO = "C_P_AREA_TO";
+
+    public static final String C_VALUE_HASHMAP = "value";
+    public static final String C_TITLE_HASHMAP = "title";
 }
