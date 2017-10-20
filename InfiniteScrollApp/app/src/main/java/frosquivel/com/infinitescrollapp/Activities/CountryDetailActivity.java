@@ -36,42 +36,41 @@ public class CountryDetailActivity extends BaseDetailActivity {
     private FloatingActionButton btnMap;
     private ImageView imgCountry;
     private TextView txtTitle;
+    private TextView txtNativeName;
+    private TextView txtRegion;
+    private TextView txtSubRegion;
+    private TextView txtDetailAlphaCode2;
+    private TextView txtDetailAlphaCode3;
+    private TextView txtNativeLanguage;
+    private TextView txtNumericCode;
+    private TextView txtArea;
+    private TextView txtCurrencyName;
+    private TextView txtCurrencyCode;
+    private TextView txtCurrencySymbol;
 
     private Activity activity;
-    private ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Country country = ( Country ) getIntent().getSerializableExtra("Country");
 
-        //  activity = addLayout(R.layout.activity_country_detail, R.id.toolbar, country.getName());
         activity = addLayout(R.layout.activity_country_detail, R.id.toolbar, "");
 
         btnMap = (FloatingActionButton) activity.findViewById(R.id.btnMap);
-
         txtTitle = (TextView) activity.findViewById(R.id.txtTitle);
         imgCountry = (ImageView) activity.findViewById(R.id.imgCountry);
-
-        lv = (ListView) findViewById(R.id.listViewCountryDetail);
-        List<HashMap<String,String>> listHashMap = new ArrayList<HashMap<String,String>>();
-        HashMap<String, String> hashmap = new HashMap<String, String>();
-
-        hashmap.put(Const.C_TITLE_HASHMAP, "Alpha code 2");
-        hashmap.put(Const.C_VALUE_HASHMAP, country.getAlpha2Code());
-        listHashMap.add(hashmap);
-
-        hashmap.put(Const.C_TITLE_HASHMAP, "Alpha code 3");
-        hashmap.put(Const.C_VALUE_HASHMAP, country.getAlpha3Code());
-        listHashMap.add(hashmap);
-
-        hashmap.put(Const.C_TITLE_HASHMAP, "CurrencyName");
-        hashmap.put(Const.C_VALUE_HASHMAP, country.getCurrencyName());
-        listHashMap.add(hashmap);
-
-        CountryDetailAdapter arrayAdapter = new CountryDetailAdapter(this, listHashMap, R.layout.row_item_static_list_view);
-        lv.setAdapter(arrayAdapter);
+        txtNativeName = (TextView) activity.findViewById(R.id.txtNativeName);
+        txtRegion = (TextView) activity.findViewById(R.id.txtRegion);
+        txtSubRegion = (TextView) activity.findViewById(R.id.txtSubRegion);
+        txtDetailAlphaCode2 = (TextView) activity.findViewById(R.id.txtDetailAlphaCode2);
+        txtDetailAlphaCode3 = (TextView) activity.findViewById(R.id.txtDetailAlphaCode3);
+        txtNativeLanguage = (TextView) activity.findViewById(R.id.txtNativeLanguage);
+        txtNumericCode = (TextView) activity.findViewById(R.id.txtNumericCode);
+        txtArea = (TextView) activity.findViewById(R.id.txtArea);
+        txtCurrencyName = (TextView) activity.findViewById(R.id.txtCurrencyName);
+        txtCurrencyCode = (TextView) activity.findViewById(R.id.txtCurrencyCode);
+        txtCurrencySymbol = (TextView) activity.findViewById(R.id.txtCurrencySymbol);
 
         Glide.with(this)
                 .load(country.getFlagPng())
@@ -80,30 +79,29 @@ public class CountryDetailActivity extends BaseDetailActivity {
                 .listener(new RequestListener<String, GlideDrawable>() {
                     @Override
                     public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                       /* activity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                progressBar.setVisibility(View.GONE);
-                            }
-                        });*/
 
                         return false;
                     }
 
                     @Override
                     public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        /*activity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                progressBar.setVisibility(View.GONE);
-                            }
-                        });*/
+
                         return false;
                     }
                 })
                 .into(imgCountry);
 
         txtTitle.setText(country.getName());
-       // txtTitleDescription.setText(country.getName());
+        txtNativeName.setText(country.getNativeName());
+        txtRegion.setText(country.getRegion());
+        txtSubRegion.setText(country.getSubRegion());
+        txtDetailAlphaCode2.setText(country.getAlpha2Code());
+        txtDetailAlphaCode3.setText(country.getAlpha3Code());
+        txtNativeLanguage.setText(country.getNativeLanguage());
+        txtNumericCode.setText(String.valueOf(country.getNumericCode()));
+        txtArea.setText(String.valueOf(country.getArea()));
+        txtCurrencyName.setText(country.getCurrencyName());
+        txtCurrencyCode.setText(country.getCurrencyCode());
+        txtCurrencySymbol.setText(country.getCurrencySymbol());
     }
 }

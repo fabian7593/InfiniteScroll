@@ -60,6 +60,20 @@
     <string name="shared_preference_min_area_label">Min Area</string>
     <string name="shared_preference_max_area_label">Max Area</string>
 
+    <!-- countryDetail -->
+    <string name="country_detail_name">Name</string>
+    <string name="country_detail_native_name">Native Name</string>
+    <string name="country_detail_region">Region</string>
+    <string name="country_detail_sub_region">Sub Region</string>
+    <string name="country_detail_alpha_code_2">Alpha Code 2</string>
+    <string name="country_detail_alpha_code_3">Alpha Code 3</string>
+    <string name="country_detail_native_language">Native language</string>
+    <string name="country_detail_numeric_code">Numeric Code</string>
+    <string name="country_detail_area">Area</string>
+    <string name="country_detail_currency_name">Currency Name</string>
+    <string name="country_detail_currency_code">Currency Code</string>
+    <string name="country_detail_currency_symbol">Currency Symbol</string>
+
     <!-- onBoarding -->
     <string name="on_boarding_android_title">Android Development</string>
     <string name="on_boarding_ios_title">iOS Development</string>

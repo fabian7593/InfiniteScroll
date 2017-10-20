@@ -97,4 +97,5 @@ public class CountryAdapter extends InfiniteScrollAdapter  {
 
         return view;
     }
+
 }
