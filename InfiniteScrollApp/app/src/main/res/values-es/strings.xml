@@ -125,13 +125,13 @@
     <string name="awareness_02">Somos humanos</string>
     <string name="awareness_03">Somos hermanos</string>
     <string name="awareness_04">Lloramos y reímos</string>
-    <string name="awareness_05">Por una bandera, no voy a matar</string>
-    <string name="awareness_06">Alto a la Xenofobia</string>
-    <string name="awareness_07">Alto a la Homofobia</string>
+    <string name="awareness_05">Un mismo sentir</string>
+    <string name="awareness_06">No Xenofobia</string>
+    <string name="awareness_07">No Homofobia</string>
     <string name="awareness_08">Alto al Racismo</string>
     <string name="awareness_09">Alto al Bullying</string>
     <string name="awareness_10">Alto al Odio!</string>
-    <string name="awareness_11">Porfavor tomemos conciencia...</string>
+    <string name="awareness_11">Tomemos conciencia...</string>
 
     <!-- General -->
     <string name="general_accept">Ok</string>
