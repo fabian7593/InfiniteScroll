@@ -1,0 +1,195 @@
+<resources>
+    <string name="app_name">Infinite Scroll</string>
+
+    <!-- menu -->
+    <string name="menu_personal_name">Fabián Rosales Esquivel</string>
+    <string name="menu_developer_name">Frosquivel Developer</string>
+    <string name="menu_profession">Analista y Desarrollador de Software</string>
+    <string name="menu_infinite_scroll">Infinite Scroll</string>
+    <string name="menu_settings">Configuración</string>
+    <string name="menu_country_api">Country API</string>
+    <string name="menu_title_communicate_with_us">Contáctenos</string>
+    <string name="menu_share">Comparte</string>
+    <string name="menu_help_us">Buy me a coffee</string>
+    <string name="menu_contact_us">Que servicios ofrecemos?</string>
+    <string name="menu_title_footer">Footer</string>
+    <string name="menu_about">Acerca de</string>
+    <string name="menu_license">Licencia</string>
+    <string name="menu_awareness">Toma conciencia</string>
+    <string name="menu_personal_value">https://github.com/fabian7593</string>
+    <string name="menu_infinite_scroll_value">https://fabian7593.github.io/InifiniteScroll/</string>
+    <string name="menu_county_api_value">https://fabian7593.github.io/CountryAPI/</string>
+    <string name="menu_license_value">https://www.apache.org/licenses/LICENSE-2.0</string>
+    <string name="menu_git_creator">https://github.com/fabian7593</string>
+
+    <!-- Email -->
+    <string name="email_subject">Infinite Scroll Android Library</string>
+    <string name="email_choose">Selecciona un cliente email</string>
+    <string name="email_title">Comparte Infinite Scroll</string>
+    <string name="email_text">Hola, somos los desarrolladores de la librería Infinite Scroll, \n\n Queremos compartir con usted esta librería, Infinite Scroll, para realizar llamadas a web service cuando sea necesario. \n\n Lee la documentación acá. \n XXXX1 \n\n Y descarga la aplicación aquí: \n XXXX2, \n\n Y si tienens la poibilidad de donar, estaremos muy agradecidos. \n</string>
+    <string name="link_git">https://github.com/fabian7593/InifiniteScroll</string>
+    <string name="link_play_store">https://play.google.com/store/apps/details?id=frosquivel.com.infinitescrollapp</string>
+    <string name="link_play_store_payment">https://play.google.com/store/apps/details?id=frosquivel.com.infinitescrollpayapp</string>
+
+    <!-- shared preferences default-->
+    <string name="shared_preference_minimun_number_row_loading">8</string>
+    <string name="shared_preference_current_page">1</string>
+    <string name="shared_preference_max_limit">25</string>
+    <string name="shared_preference_area_from">0</string>
+    <string name="shared_preference_area_to">18000000</string>
+    <string name="shared_preference_region">All</string>
+    <string name="shared_preference_sub_region">All</string>
+
+    <string name="shared_preference_request_options_title">Opciones de solicitud</string>
+    <string name="shared_preference_minimun_number_row_loading_label">Número mínimo de celda</string>
+    <string name="shared_preference_current_page_label">Página inicial</string>
+    <string name="shared_preference_max_limit_label">Límite máximo de respuesta</string>
+
+    <string name="shared_preference_regions_filter_title">Filtro de regiones</string>
+    <string name="shared_preference_list_region_label">Lista de regiones</string>
+    <string name="shared_preference_region_label">Region</string>
+    <string name="shared_preference_sub_region_label">Sub Region</string>
+
+    <string name="shared_preference_individual_filter_title">Filtros individuales</string>
+    <string name="shared_preference_country_name">Nombre de país</string>
+    <string name="shared_preference_alpha_code_2_label">Código alfa 2</string>
+    <string name="shared_preference_alpha_code_3_label">Código alfa 3</string>
+    <string name="shared_preference_native_language_label">Nombre de moneda</string>
+
+    <string name="shared_preference_size_area_title">Tamaño de área</string>
+    <string name="shared_preference_min_area_label">Área mínima</string>
+    <string name="shared_preference_max_area_label">Área máxima</string>
+
+    <!-- countryDetail -->
+    <string name="country_detail_name">Nombre</string>
+    <string name="country_detail_native_name">Nombre nativo</string>
+    <string name="country_detail_region">Region</string>
+    <string name="country_detail_sub_region">Sub Region</string>
+    <string name="country_detail_alpha_code_2">Código alfa 2</string>
+    <string name="country_detail_alpha_code_3">Código alfa 3</string>
+    <string name="country_detail_native_language">Idioma nativo</string>
+    <string name="country_detail_numeric_code">Código numérico</string>
+    <string name="country_detail_area">Área</string>
+    <string name="country_detail_currency_name">Nombre de moneda</string>
+    <string name="country_detail_currency_code">Código de moneda</string>
+    <string name="country_detail_currency_symbol">Símbolo de moneda</string>
+
+    <!-- onBoarding -->
+    <string name="on_boarding_android_title">Desarrollo Apps Android</string>
+    <string name="on_boarding_ios_title">Desarrollo apps iOS</string>
+    <string name="on_boarding_web_title">Desarrollo Web</string>
+    <string name="on_boarding_analytics_title">Analítica / Gráfica</string>
+    <string name="on_boarding_qa_title">Control de calidad (QA)</string>
+    <string name="on_boarding_cloud_title">Servicios Cloud</string>
+    <string name="on_boarding_android_value">Creación de aplicaciones Android con Java, Android Studio, con alta calidad y rendimiento.</string>
+    <string name="on_boarding_ios_value">Creación de aplicaciones iOS, con Objetive C, XCode, con alta calidad y rendimiento.</string>
+    <string name="on_boarding_web_value">Creación de aplicaciones Web con .Net, y PHP. También nos enfocamos en Front-end.</string>
+    <string name="on_boarding_analytics_value">Realización de inteligencia de negocios y análisis de datos, para mostrar reportes y gráficos con esta información.</string>
+    <string name="on_boarding_qa_value">Realización de QA para aplicaciones mobile y web.</string>
+    <string name="on_boarding_cloud_value">Conecte sus aplicaciones con servicios en la nube como  AWS, GCP y Azure.</string>
+
+    <!-- awareness message -->
+    <string name="splash_border_text">Sin fronteras</string>
+    <string name="splash_father_we_are">We are all ?</string>
+    <string name="splash_child_human">humans</string>
+    <string name="splash_child_brothers">brothers</string>
+
+    <!-- navigators -->
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="navigation_drawer_close">Cerrar</string>
+    <string name="action_settings">Configuración</string>
+
+    <!-- Schemes -->
+    <string name="scheme_scheme_youtube">youtube://channel/</string>
+    <string name="scheme_id_youtube">UCJnvvHb_vwMwbnZWplkHIfw</string>
+    <string name="scheme_url_youtube">https://www.youtube.com/channel/UCJnvvHb_vwMwbnZWplkHIfw</string>
+    <string name="scheme_scheme_linkedin">linkedin://</string>
+    <string name="scheme_id_linkedin">fabian-rosales-esquivel-698893106</string>
+    <string name="scheme_url_linkedin">https://www.linkedin.com/in/fabian-rosales-esquivel-698893106/</string>
+    <string name="scheme_scheme_messenger">fb-messenger://user/</string>
+    <string name="scheme_id_messenger">100003819211529</string>
+    <string name="scheme_url_messenger">https://www.messenger.com/t/fabian.rosales.509</string>
+
+    <!-- About -->
+    <string name="about_name">Fabián Rosales Esquivel</string>
+    <string name="about_sub_title">Desarrollador y Analista de Software</string>
+    <string name="about_brief">Soy un apasionado en tecnologías móviles, espicialmente en nativas. \n\n Creador de ideas, autodidacta, UI/UX best practices, design patterns y otros. \n\n También hago y me gusta el desarrollo Web, Frontend and Backend. También me gusta la fotografía, el diseño y en mi tiempo libre realizar proyectos de Arduino .</string>
+    <string name="about_playstore">Frosquivel%20Developer&amp;</string>
+    <string name="about_gitlink">fabian7593</string>
+    <string name="about_email">fabian7593@gmail.com</string>
+    <string name="about_skype">fabianre7593</string>
+    <string name="about_youtube">UCJnvvHb_vwMwbnZWplkHIfw</string>
+
+    <!-- Awareness -->
+    <string name="awareness_01">Sin fronteras</string>
+    <string name="awareness_02">Somos humanos</string>
+    <string name="awareness_03">Somos hermanos</string>
+    <string name="awareness_04">Lloramos y reímos</string>
+    <string name="awareness_05">Por una bandera, no voy a matar</string>
+    <string name="awareness_06">Alto a la Xenofobia</string>
+    <string name="awareness_07">Alto a la Homofobia</string>
+    <string name="awareness_08">Alto al Racismo</string>
+    <string name="awareness_09">Alto al Bullying</string>
+    <string name="awareness_10">Alto al Odio!</string>
+    <string name="awareness_11">Porfavor tomemos conciencia...</string>
+
+    <!-- General -->
+    <string name="general_accept">Ok</string>
+    <string name="general_cancel">Cancel</string>
+
+    <!-- Errors -->
+    <string name="error_title">Error!</string>
+    <string name="error_not_have_networking">Porfavor revise su conexión a internet.</string>
+    <string name="error_not_open_messenger">No puedes abrir Facebook Messenger</string>
+    <string name="error_not_open_linkedin">No puedes abrir LinkedIn</string>
+    <string name="error_not_open_youtube">No puedes abrir YouTube</string>
+
+
+    <!-- Array Options -->
+    <string-array name="continents">
+        <item>All</item>
+        <item>Africa</item>
+        <item>Americas</item>
+        <item>Asia</item>
+        <item>Europe</item>
+        <item>Oceania</item>
+        <item>Polar</item>
+    </string-array>
+
+    <string-array name="africa_list">
+        <item>Eastern Africa</item>
+        <item>Middle Africa</item>
+        <item>Northern Africa</item>
+        <item>Southern Africa</item>
+        <item>Western Africa</item>
+    </string-array>
+
+    <string-array name="americas_list">
+        <item>Caribbean</item>
+        <item>Central America</item>
+        <item>Northern America</item>
+        <item>South America</item>
+    </string-array>
+
+    <string-array name="asia_list">
+        <item>Central Asia</item>
+        <item>Eastern Asia</item>
+        <item>South-Eastern Asia</item>
+        <item>Southern Asia</item>
+        <item>Western Asia</item>
+    </string-array>
+
+    <string-array name="europe_list">
+        <item>Eastern Europe</item>
+        <item>Northern Europe</item>
+        <item>Southern Europe</item>
+        <item>Western Europe</item>
+    </string-array>
+
+    <string-array name="oceania_list">
+        <item>Australia and New Zealand</item>
+        <item>Melanesia</item>
+        <item>Micronesia</item>
+        <item>Polynesia</item>
+    </string-array>
+</resources>

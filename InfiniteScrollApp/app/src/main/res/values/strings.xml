@@ -23,10 +23,10 @@
     <string name="menu_git_creator">https://github.com/fabian7593</string>
 
     <!-- Email -->
-    <string name="email_subject">Infinite Scroll Android Library 0.0.1</string>
+    <string name="email_subject">Infinite Scroll Android Library</string>
     <string name="email_choose">Choose Email Client</string>
     <string name="email_title">Share Infinite Scroll</string>
-    <string name="email_text">Hello We are the developers of Infinite Scroll library, \n\n we want to share with you this library, Infinite Scroll, for call your when the list view require this. \n\n View this library here. \n XXXX1 \n\n And download the app here: \n XXXX2, \n\n And if you have the possibility to buy the Payment app, we will be very grateful, you can see here: \n XXXX3</string>
+    <string name="email_text">Hello We are the developers of Infinite Scroll library, \n\n we want to share with you this library, Infinite Scroll, for call your when the list view require this. \n\n View this library here. \n XXXX1 \n\n And download the app here: \n XXXX2, \n\n And if you have the possibility to donate we are very agraceful</string>
     <string name="link_git">https://github.com/fabian7593/InifiniteScroll</string>
     <string name="link_play_store">https://play.google.com/store/apps/details?id=frosquivel.com.infinitescrollapp</string>
     <string name="link_play_store_payment">https://play.google.com/store/apps/details?id=frosquivel.com.infinitescrollpayapp</string>
@@ -81,7 +81,7 @@
     <string name="on_boarding_analytics_title">Analytics / graphics</string>
     <string name="on_boarding_qa_title">QA</string>
     <string name="on_boarding_cloud_title">Cloud Computing</string>
-    <string name="on_boarding_android_value">App creation with Android for with Java, Android Studio, with high quality.</string>
+    <string name="on_boarding_android_value">App creation with Android, with Java, Android Studio, with high quality.</string>
     <string name="on_boarding_ios_value">App creation with iOS, with Objetive C, XCode, with high quality and performance.</string>
     <string name="on_boarding_web_value">Web creation with .Net, and PHP. Too any scripts and frameworks front end.</string>
     <string name="on_boarding_analytics_value">Perform BI and data analytics, and make Graphics with this information.</string>
@@ -113,7 +113,7 @@
     <!-- About -->
     <string name="about_name">Fabián Rosales Esquivel</string>
     <string name="about_sub_title">Analyst and Software Developer</string>
-    <string name="about_brief">I\'m apassionate with all mobile devices technologies in focus of Android and iOS native. \n\n Ideas maker, autodidact, UI/UX best practices, design patterns and others. \n\n I like too develop Web, Frontend and Backend, some of design and photography too.</string>
+    <string name="about_brief">I\'m apassionate with all mobile devices technologies in focus of Android and iOS native. \n\n Ideas maker, autodidact, UI/UX best practices, design patterns and others. \n\n I like too develop Web, Frontend and Backend, some of design and photography too. And in my free time I carry out Arduino projects.</string>
     <string name="about_playstore">Frosquivel%20Developer&amp;</string>
     <string name="about_gitlink">fabian7593</string>
     <string name="about_email">fabian7593@gmail.com</string>
