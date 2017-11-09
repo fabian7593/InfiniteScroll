@@ -10,9 +10,12 @@ import frosquivel.com.infinitescrollapp.Classes.Utils;
 import frosquivel.com.infinitescrollapp.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by Fabian on 12/06/2017.
+ * Splash screen
  */
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -26,6 +29,9 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Fabric.with(this, new Crashlytics());
+
+        //set the new font in all app
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath(Const.C_FONT_PATH)
                 .setFontAttrId(R.attr.fontPath)
@@ -34,6 +40,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash_screen);
 
+        //set the shared preferences
         String isFirstTime = "";
         boolean isFirstTimeBool = true;
         try{

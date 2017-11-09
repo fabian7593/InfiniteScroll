@@ -4,6 +4,7 @@ import android.widget.AbsListView;
 
 /**
  * Created by Fabian on 02/06/2017.
+ * This class implements Scroll listener of list View
  */
 
 public class InfiniteScrollList implements AbsListView.OnScrollListener{

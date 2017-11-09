@@ -25,7 +25,8 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * Created by Fabian on 02/06/2017.
-
+ * The country adapter of the list of countries,
+ * Call the pictures with urls, and set the necesarry information in the list
  */
 public class CountryAdapter extends InfiniteScrollAdapter  {
 
@@ -33,6 +34,7 @@ public class CountryAdapter extends InfiniteScrollAdapter  {
     private Context context;
     private Activity activity;
 
+    //set activity, list of objects and layout of row
     public CountryAdapter(Activity activity, List<Object> values, int rowlayout){
         super(activity, values, rowlayout);
         rowLayout = rowlayout;
@@ -43,6 +45,7 @@ public class CountryAdapter extends InfiniteScrollAdapter  {
     public View getView(int position, View convertView, ViewGroup parent) {
          View view = null;
         context =  getContext();
+        //convert the object in country class
         Country country = (Country)getItem(position);
 
         if(convertView == null){
@@ -52,17 +55,21 @@ public class CountryAdapter extends InfiniteScrollAdapter  {
             view = convertView;
         }
 
+        //set the necessary text
         TextView textView = (TextView) view.findViewById(R.id.textView);
         TextView textViewSecond = (TextView) view.findViewById(R.id.textViewSecond);
         textView.setText(country.getName());
         textViewSecond.setText(country.getNativeName());
 
+        //obtain the url of image flag
         final String flagUrl = country.getFlagPng();
         final ImageView imageCountry = (ImageView)view.findViewById(R.id.imageCountry);
 
+        //init the progress bar
         final BallView progressBar = (BallView)view.findViewById(R.id.loadingBalls);
         progressBar.setVisibility(View.VISIBLE);
 
+        //call the url of image country, and use glide for charge this async
         Glide.with(activity)
                 .load(flagUrl)
                 .fitCenter()
@@ -71,6 +78,7 @@ public class CountryAdapter extends InfiniteScrollAdapter  {
                 .listener(new RequestListener<String, GlideDrawable>() {
                     @Override
                     public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                        //you need the ui thread
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -83,6 +91,7 @@ public class CountryAdapter extends InfiniteScrollAdapter  {
 
                     @Override
                     public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                        //you need the ui thread
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {

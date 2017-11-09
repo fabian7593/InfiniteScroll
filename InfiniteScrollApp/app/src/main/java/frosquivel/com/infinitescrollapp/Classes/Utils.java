@@ -67,12 +67,14 @@ public class Utils {
     }
 
     //#Shared preference methods
+    //set shared preference value
     public static void setSharedPreference(Context context, String preferenceName, String preferenceValue){
         SharedPreferences.Editor editor = context.getSharedPreferences(Const.C_SHARED_PREFERENCES, context.MODE_PRIVATE).edit();
         editor.putString(preferenceName, preferenceValue);
         editor.commit();
     }
 
+    //get shared preference value
     public static String getSharedPreference(Context context, String preferenceName){
         SharedPreferences pref = context.getApplicationContext().getSharedPreferences(Const.C_SHARED_PREFERENCES, context.MODE_PRIVATE);
         return pref.getString(preferenceName, "");
@@ -89,6 +91,7 @@ public class Utils {
         activity.startActivity(intent);
     }
 
+    //send an email
     public static void sendMeAnEmail(Activity activity){
         Intent email = new Intent(Intent.ACTION_SEND);
         email.putExtra(Intent.EXTRA_EMAIL, new String[]{"fabian7593@gmail.com"});
@@ -98,6 +101,7 @@ public class Utils {
         activity.startActivity(Intent.createChooser(email, activity.getString(R.string.email_choose)));
     }
 
+    //shared the app with this text
     public static void sharedApp(Activity activity) {
         Intent shareIntent = new Intent();
         String textEmail = activity.getString(R.string.email_text);
@@ -127,6 +131,7 @@ public class Utils {
         return toReturn;
     }
 
+    //open url scheme, for youtube, linked in etc
     public static void openScheme(Activity activity, String scheme, String id, String url, String errorMessage){
         Uri uri = Uri.parse(scheme);
         try {
@@ -134,7 +139,6 @@ public class Utils {
         }catch(Exception ev){
             uri = Uri.parse(scheme + id);
         }
-
 
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         try {
@@ -149,7 +153,7 @@ public class Utils {
         }
     }
 
-
+    //show the up dialog
     public static void showSneakerDialog(Activity activity, String errorMessage){
         try{
             Sneaker.with(activity)
@@ -162,7 +166,7 @@ public class Utils {
         }
     }
 
-
+    //charge new fragments with this universal method
     public static void chargeFragments(Fragment fragmentChange, FragmentManager fragmentManagerParam, int Rlayout){
         Fragment fragment = null;
         fragment = fragmentChange;

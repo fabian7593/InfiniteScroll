@@ -11,6 +11,7 @@ import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 16/06/2017.
+ * A base detail activity of tool bar with back arrow
  */
 
 public class BaseDetailActivity extends AppCompatActivity {
@@ -20,8 +21,11 @@ public class BaseDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
+    //Add layout and return the current activity, with all necessary logic of tool bar
     protected Activity addLayout(int layout){
         this.setContentView(layout);
+
+        //set the toolbar and back arrow
         Toolbar toolbar = (Toolbar) this.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -37,7 +41,6 @@ public class BaseDetailActivity extends AppCompatActivity {
 
         return this;
     }
-
 
     protected Activity addLayout(int layout, int toolbarId ){
         this.setContentView(layout);
@@ -57,8 +60,6 @@ public class BaseDetailActivity extends AppCompatActivity {
         return this;
     }
 
-
-
     protected Activity addLayout(int layout, int toolbarId, String titleName){
         this.setContentView(layout);
         Toolbar toolbar = (Toolbar) this.findViewById(toolbarId);
@@ -77,6 +78,4 @@ public class BaseDetailActivity extends AppCompatActivity {
 
         return this;
     }
-
-
 }

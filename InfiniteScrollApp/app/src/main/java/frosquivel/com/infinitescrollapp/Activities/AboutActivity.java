@@ -12,6 +12,7 @@ import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 02/07/2017.
+ * A class for show all information about
  */
 
 public class AboutActivity extends BaseDetailActivity {
@@ -34,12 +35,9 @@ public class AboutActivity extends BaseDetailActivity {
                 .setBrief(getString(R.string.about_brief))
                 .setAppIcon(R.mipmap.ic_launcher)
                 .setAppName(R.string.app_name)
-                .addGooglePlayStoreLink(getString(R.string.about_playstore))
                 .addGitHubLink(getString(R.string.about_gitlink))
                 .addEmailLink(getString(R.string.about_email))
-                .addSkypeLink(getString(R.string.about_skype))
                 .addYoutubeChannelLink(getString(R.string.about_youtube))
-                .addFiveStarsAction()
                 .setVersionNameAsAppSubTitle()
                 .addShareAction(R.string.app_name)
                 .setWrapScrollView(true)

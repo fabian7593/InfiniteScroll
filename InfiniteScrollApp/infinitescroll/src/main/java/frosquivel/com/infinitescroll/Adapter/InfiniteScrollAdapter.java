@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * Created by Fabian on 02/06/2017.
+ * The adapter father class , for set data in list view or recycler view
  */
 
 public class InfiniteScrollAdapter extends ArrayAdapter<Object> {
@@ -18,7 +19,8 @@ public class InfiniteScrollAdapter extends ArrayAdapter<Object> {
     /**
      * This is the constructor method of the class
      * @param context the context that you come, to call the super of the class.
-     * @param values the list of items that you need to load in the listview
+     * @param values the list of items that you need to load in the listview, is a list of objects
+     *               for cast in any other class, that you need
      * @param rowlayout the layout of row items, to call the super of the class
      */
     public InfiniteScrollAdapter(Activity context, List<Object> values, int rowlayout) {

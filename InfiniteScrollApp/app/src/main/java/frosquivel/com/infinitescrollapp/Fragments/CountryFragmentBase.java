@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.konifar.fab_transformation.FabTransformation;
 
@@ -24,6 +25,8 @@ import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 02/06/2017.
+ * The fragment base with floating action button like quick menu for realize
+ * any actions for, shared, go to git hub or others
  */
 
 public class CountryFragmentBase extends Fragment {
@@ -83,8 +86,6 @@ public class CountryFragmentBase extends Fragment {
             case R.id.action_recycler:
                 Utils.chargeFragments(new CountryRecyclerViewFragment(),
                         getFragmentManager(), R.layout.fragment_country_recycler_view);
-
-
                 return true;
 
             case R.id.action_list:

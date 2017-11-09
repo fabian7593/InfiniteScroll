@@ -2,11 +2,15 @@ package frosquivel.com.infinitescrollapp.Classes;
 
 /**
  * Created by Fabian on 03/06/2017.
+ * A class with have all const that I need in all app
  */
 
 public class Const {
     public static final String C_IS_FIRST_TIME = "C_IS_FIRST_TIME";
 
+    //The url request of country api, for call the list of countries
+    //If you like this go to github , fork and wive me a star
+    //https://github.com/fabian7593/CountryAPI
     public static final String C_URL_REQUEST_COUNTRYAPI =
             "http://countryapi.gear.host/v1/Country/getCountries?" + "" +
             "pLimit=%s&pPage=%s&pName=%s"+

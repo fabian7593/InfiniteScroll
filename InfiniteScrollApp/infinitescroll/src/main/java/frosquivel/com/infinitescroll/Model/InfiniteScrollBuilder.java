@@ -16,6 +16,7 @@ public class InfiniteScrollBuilder {
     private ProgressBar progressBar;
     private Activity activity;
 
+    //set the constructor of builder infinite scroll
     public InfiniteScrollBuilder(Activity activity){
         this.activity = activity;
         this.progressBar = null;

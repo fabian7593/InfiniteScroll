@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * Created by Fabian on 02/06/2017.
+ * The response model of rest service,
+ * have the necessary attributes and a list of countries, like the response of rest api service
  */
 
 public class ResponseModel {

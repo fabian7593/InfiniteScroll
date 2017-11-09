@@ -1,8 +1,11 @@
 package frosquivel.com.infinitescrollapp.Activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.rey.material.widget.EditText;
@@ -19,6 +22,8 @@ import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 09/07/2017.
+ * The activity of filter preferences, if the user click back button save all changes
+ * For show the new responses with the new filters for web service
  */
 public class SharedPreferenceActivity extends BaseDetailActivity {
     private Activity activity;
@@ -42,6 +47,7 @@ public class SharedPreferenceActivity extends BaseDetailActivity {
         setUIComponents();
         getValuesSharedPreference();
         setListeners();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
     private void setUIComponents(){
@@ -106,6 +112,10 @@ public class SharedPreferenceActivity extends BaseDetailActivity {
             public void onFocusChange(View v, boolean hasFocus) {
 
                 if (hasFocus) {
+
+                    InputMethodManager inputmethodmgr= (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputmethodmgr.hideSoftInputFromWindow(txtRegion.getWindowToken(), 0);
+
                     int choise = -1;
                     final List<String> continents = Arrays.asList(getResources().getStringArray(R.array.continents));
                     for(int x=0; x < continents.size(); x++)  {
@@ -143,6 +153,10 @@ public class SharedPreferenceActivity extends BaseDetailActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
+
+                    InputMethodManager inputmethodmgr= (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputmethodmgr.hideSoftInputFromWindow(txtSubRegion.getWindowToken(), 0);
+
                     if(subRegions != null){
                         int choise = -1;
 

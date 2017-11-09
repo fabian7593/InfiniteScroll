@@ -2,6 +2,7 @@ package frosquivel.com.infinitescroll.Interface;
 
 /**
  * Created by Fabian on 02/06/2017.
+ * An interface for call onSuccess and onFailure if you needed
  */
 
 public interface InfiniteScrollInterface {

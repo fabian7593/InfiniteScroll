@@ -16,6 +16,7 @@ import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 28/06/2017.
+ * The page of data that we offer like a company, for freelance works
  */
 public class PaperOnboardingActivity extends AppCompatActivity {
 

@@ -12,6 +12,7 @@ import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 10/06/2017.
+ * An activity for charge all web pages, in this web view
  */
 
 public class WebViewActivity extends BaseDetailActivity {

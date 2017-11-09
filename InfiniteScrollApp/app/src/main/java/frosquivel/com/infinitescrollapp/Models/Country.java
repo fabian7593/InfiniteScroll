@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * Created by Fabian on 02/06/2017.
+ * The model of country like response of web service,
+ * has all attributes
  */
 
 public class Country implements Serializable{

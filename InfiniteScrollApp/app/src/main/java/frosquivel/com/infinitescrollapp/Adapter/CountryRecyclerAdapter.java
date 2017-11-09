@@ -44,7 +44,7 @@ public class CountryRecyclerAdapter extends RecyclerView.Adapter<CountryRecycler
         }
     }
 
-
+//constructor set the objetc list, and the activity
     public CountryRecyclerAdapter(List<Object> objectList, Activity activity) {
         this.objectList = objectList;
         this.activity = activity;
@@ -60,7 +60,10 @@ public class CountryRecyclerAdapter extends RecyclerView.Adapter<CountryRecycler
 
     @Override
     public void onBindViewHolder(CountryHolder holder, int position) {
+        //convert object to country object
         Country country = (Country)objectList.get(position);
+
+        //set necessary data into text view and image
         holder.textView.setText(country.getName());
         holder.textViewSecond.setText(country.getNativeName());
         holder.progressBar.setVisibility(View.VISIBLE);

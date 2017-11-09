@@ -20,13 +20,12 @@ import frosquivel.com.infinitescrollapp.Activities.AwarenessActivity;
 import frosquivel.com.infinitescrollapp.Activities.PaperOnboardingActivity;
 import frosquivel.com.infinitescrollapp.Activities.SharedPreferenceActivity;
 import frosquivel.com.infinitescrollapp.Classes.Utils;
-import frosquivel.com.infinitescrollapp.Fragments.CountryFragmentBase;
 import frosquivel.com.infinitescrollapp.Fragments.CountryListViewFragment;
-import frosquivel.com.infinitescrollapp.Fragments.CountryRecyclerViewFragment;
 import frosquivel.com.infinitescrollapp.R;
 
 /**
  * Created by Fabian on 02/06/2017.
+ * A base activity with menu drawer logic
  */
 
 public class BaseActivity extends AppCompatActivity
@@ -35,10 +34,15 @@ public class BaseActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //call the layour
         setContentView(R.layout.activity_main);
+
+        //set the tool bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // add the drawer layout and the image of user
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -54,6 +58,7 @@ public class BaseActivity extends AppCompatActivity
         ImageView nav_drawer_linked_in = (ImageView) headerView.findViewById(R.id.nav_drawer_linked_in);
         ImageView nav_drawer_git = (ImageView) headerView.findViewById(R.id.nav_drawer_git);
 
+        //animation of open or close drawer menu
         AnimationDrawable animacion;
         animacion = (AnimationDrawable)getResources().getDrawable(
                 R.drawable.animation_list);
@@ -62,6 +67,7 @@ public class BaseActivity extends AppCompatActivity
         animacion.setExitFadeDuration(4000);
         animacion.start();
 
+        //set links for enter when user click in icons of drawer menu or photo
         nav_drawer_git.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +90,7 @@ public class BaseActivity extends AppCompatActivity
             }
         });
 
+        //charge the fragment
         Utils.chargeFragments(new CountryListViewFragment(),
                 getFragmentManager(), R.layout.fragment_country_list_view);
 
@@ -93,6 +100,7 @@ public class BaseActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+        //logic of on back press
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);

@@ -33,6 +33,7 @@ import su.levenetc.android.textsurface.contants.Side;
 
 /**
  * Created by Fabian on 06/07/2017.
+ * A class for show an animation with letters of xenofobia and other topics
  */
 
 public class AwarenessActivity  extends AppCompatActivity {

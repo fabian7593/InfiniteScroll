@@ -193,11 +193,12 @@
                         android:layout_marginRight="@dimen/normal_margin_x3"
                         android:layout_marginTop="@dimen/normal_margin"
                         android:hint="@string/shared_preference_region_label"
-                        android:inputType="text"
-                        android:clickable="true"
+                        android:inputType="none"
+                        android:clickable="false"
                         android:cursorVisible="false"
                         android:focusable="false"
-                        android:enabled="true"/>
+                        android:enabled="true"
+                        android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
                     <com.rey.material.widget.EditText
                         android:id="@+id/txtSubRegion"
@@ -209,9 +210,10 @@
                         android:layout_marginRight="@dimen/normal_margin_x3"
                         android:layout_marginTop="@dimen/normal_margin"
                         android:hint="@string/shared_preference_sub_region_label"
-                        android:inputType="text"
+                        android:inputType="none"
                         android:clickable="false"
-                        android:cursorVisible="false"/>
+                        android:cursorVisible="false"
+                        android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
                 </LinearLayout>
 

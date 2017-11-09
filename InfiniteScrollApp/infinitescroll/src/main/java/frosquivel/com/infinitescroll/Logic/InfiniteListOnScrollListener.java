@@ -9,16 +9,18 @@ import frosquivel.com.infinitescroll.Utils.InfiniteScrollUtil;
 
 /**
  * Created by Fabian on 02/06/2017.
+ * The master class of infinite scroll
  */
 
 public abstract class InfiniteListOnScrollListener extends InfiniteScrollList {
 
+    //the object of infinite scroll
     protected InfiniteScrollObject infiniteScrollObject;
     //int of value scroll state changes
     private static int scrollStatusCount;
 
     /**
-     * Constructor overoad with infinite scroll object
+     * Constructor with infinite scroll object
      * @param infiniteScrollObject
      */
     public InfiniteListOnScrollListener(InfiniteScrollObject infiniteScrollObject) {
@@ -26,10 +28,10 @@ public abstract class InfiniteListOnScrollListener extends InfiniteScrollList {
         scrollStatusCount=0;
     }
 
-    //abstract method for call when you have the response service
+    //abstract method for call when you have the response of the web service
     public abstract int onLoadMoreData(int page, int totalItemsCount, ListView view);
 
-    //when the user realize scroll
+    //when the user realized scroll
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
     {
@@ -123,5 +125,4 @@ public abstract class InfiniteListOnScrollListener extends InfiniteScrollList {
                 this.infiniteScrollObject.getProgressBar().setVisibility(View.GONE);
         }catch(Exception e){}
     }
-
 }

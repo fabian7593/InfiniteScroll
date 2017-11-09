@@ -1,13 +1,11 @@
 package frosquivel.com.infinitescrollapp.Activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -16,19 +14,14 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import frosquivel.com.infinitescrollapp.Activities.Base.BaseDetailActivity;
-import frosquivel.com.infinitescrollapp.Adapter.CountryDetailAdapter;
-import frosquivel.com.infinitescrollapp.Classes.Const;
 import frosquivel.com.infinitescrollapp.Models.Country;
 import frosquivel.com.infinitescrollapp.R;
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * Created by Fabian on 06/08/2017.
+ * The class to show the detail of country, set all data of the country selected
+ * In a list, with the respective picture, and the map localization
  */
 
 public class CountryDetailActivity extends BaseDetailActivity {
@@ -49,11 +42,12 @@ public class CountryDetailActivity extends BaseDetailActivity {
     private TextView txtCurrencySymbol;
 
     private Activity activity;
+    private Country country = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Country country = ( Country ) getIntent().getSerializableExtra("Country");
+        country = ( Country ) getIntent().getSerializableExtra("Country");
 
         activity = addLayout(R.layout.activity_country_detail, R.id.toolbar, "");
 
@@ -71,6 +65,17 @@ public class CountryDetailActivity extends BaseDetailActivity {
         txtCurrencyName = (TextView) activity.findViewById(R.id.txtCurrencyName);
         txtCurrencyCode = (TextView) activity.findViewById(R.id.txtCurrencyCode);
         txtCurrencySymbol = (TextView) activity.findViewById(R.id.txtCurrencySymbol);
+
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(CountryDetailActivity.this, GoogleMapsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Country", country);
+                mainIntent.putExtras(bundle);
+                startActivity(mainIntent);
+            }
+        });
 
         Glide.with(this)
                 .load(country.getFlagPng())

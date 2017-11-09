@@ -23,15 +23,12 @@ public class InfiniteScrollUtil {
         return mapStructure;
     }
 
-
+    //if have internet connection
     public static boolean isNetworkAvailable(Activity context) {
-
-
             ConnectivityManager connectivityManager
                     = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 
             return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-
     }
 }

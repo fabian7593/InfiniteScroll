@@ -18,14 +18,18 @@ public class InfiniteScrollObject {
     // True if we are still waiting for the last set of data to load.
     private boolean loading;
 
+    //if is the final item
     private int isFinalItem;
 
+    //the current progress bar to show
     private ProgressBar progressBar;
 
+    //the first visible item in list view, the number of visible items, and all the total of items in the list
     private int firstVisibleItem, visibleItemCount, totalItemCount;
 
     private Activity activity;
 
+    //init the infinite scroll object
     InfiniteScrollObject(InfiniteScrollBuilder builder) {
         this.progressBar = builder.getProgressBar();
         this.minimunNumberRowLoadingMore = builder.getMinimunNumberRowLoadingMore();
