@@ -1,4 +1,44 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'InfiniteScroll'
+
+    publishedGroupId = 'frosquivel.com'
+    libraryName = 'infinitescroll'
+    artifact = 'infinitescroll'
+
+    libraryDescription = 'You can do a scroll infinite with simple steps'
+
+    siteUrl = 'https://github.com/fabian7593/InfiniteScroll'
+    gitUrl = 'https://github.com/fabian7593/InfiniteScroll.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'frosquiveldev'
+    developerName = 'Fabian Rosales - Frosquivel Developer'
+    developerEmail = 'fabian7593@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+    }
+}
+
+repositories {
+    mavenCentral();
+
+}
 
 android {
     compileSdkVersion 26
@@ -8,7 +48,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -30,3 +70,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.1.0'
     testCompile 'junit:junit:4.12'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+apply plugin: 'com.github.dcendents.android-maven'
