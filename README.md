@@ -178,3 +178,81 @@ You need to return the int of the number of response objects of the web services
             }
         });
 ```
+
+**Example RecyclerView**
+You need to send the recycler view, the activity and the infiniteScrollObject
+```bash
+  recyclerView.addOnScrollListener(new InfiniteRecyclerOnScrollListener(recyclerView, activity, infiniteScrollObject) {
+            @Override
+            public int onLoadMore(int currentPage, int totalItemsCount) {
+                return resquestAPIMethod(currentPage);
+            }
+        });
+```
+<br>
+
+### Set the InfiniteScrollInterface
+You need to set the InfiniteScrollInterface, for call the events of onSucess or onFailure.
+You have the possibillity of implements "InfiniteScrollInterface" and import the required methods, or create an instance of this Interface and usage how that you need.
+
+Example:
+```bash
+            InfiniteScrollInterface interfaceInfinite = new InfiniteScrollImpl() {
+
+                //If the request is success and get data, call onSuccess event of this interface
+                //The parameter is an object and you cast this object to another class type, that you need
+                @Override
+                public void onSuccess(Object responseModel) {
+                    //set the response model in a static variable
+                    responseModelStatic = (ResponseModel) responseModel;
+
+                    //add into your adapter list of your recylcer view or list view, the new values response of web service
+                   
+                    //And refresh the listView, like this
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try{
+                                adapter.notifyDataSetChanged();
+                            }catch(Exception ex){}
+                        }
+                    });
+                }
+
+                //If the request have a failure, call this event
+                @Override
+                public void onFailure(String errorResponse){
+                    Toast.makeText(activity, errorResponse, Toast.LENGTH_SHORT).show();
+                }
+            };
+
+```
+<br>
+
+### Call the InfiniteScrollInterface
+When you call the library for request you web service, you can do use, OkHttp, Retrofit, Volley, Async task etc...
+when this class obtain the new data of response or get a failure you can need to call the methods of interface like this:
+```bash
+//instance the request and ok http client
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+
+            //do the request
+            client.newCall(request)
+                    .enqueue(new Callback() {
+                        @Override
+                        public void onFailure(final Call call, IOException e) {
+                          infiniteScrollInterface.onFailure(stackTrace); 
+                        }
+
+                        @Override
+                        public void onResponse(Call call, final Response response) throws IOException {
+                            infiniteScrollInterface.onSuccess(responseModel);  
+                        }
+                    });
+```
+
+
+
