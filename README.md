@@ -29,6 +29,7 @@ You can do a Endless scroll in ListView or RecyclerView with simple steps, witha
   - [InfiniteScrollObject new Instance](#infinitescrollobject-new-instance)
   - [Set the onScrollListener](#set-the-onscrolllistener)
   - [Call the InfiniteScrollInterface](#call-the-infinitescrollinterface)
+- [Current Example Explanation](#current-example-explanation)
 
 ### Footer Docs
 - - -
@@ -38,6 +39,7 @@ You can do a Endless scroll in ListView or RecyclerView with simple steps, witha
   - [Suggestions](#suggestions)
 - [Credits and contributors](#credits-and-contributors) 
   - [Contributors are welcome](#contributors-are-welcome)
+- [References](#references) 
 - [Apache License](#license) 
 
 <br><br>
@@ -265,6 +267,22 @@ when this class obtain the new data of response or get a failure you can need to
 
 <br><br><br>
 
+## Current Example Explanation
+You can view the current example in the code, if you download or clone the repository, in app folder you can view all code.
+In this example the real important classes are:
+
+* **Fragments/CountryListViewFragment** Have all implementation of InfiniteScroll library for listViews.
+* **Fragments/CountryRecyclerViewFragment** Have all implementation of InfiniteScroll library for recyclerViews.
+* **Classes/RequestApi** This class build the request for country api and call the interface events.
+* **Models/ResponseModel** The object with response class structure.
+* **Models/Country** The object with coutnry object structure.
+All of other class is only for do the application, but they have no relationship with InfiniteScrollLibrary. 
+
+We use the "CountryApi" for example of pagination web service, you can see this in:
+https://github.com/fabian7593/CountryAPI
+
+<br><br><br>
+
 # Footer Document
 
 ## Internal documentation
@@ -281,6 +299,15 @@ Infinite Scroll was created to make Android Devoloper's life easy. If you have a
  - Write what your feedback is about and add the next "tag" including the square brackets [FEEDBACK]
 
 Suggestions about how to improve the library or new features are welcome. Thanks for choosing us.
+<br><br>
+
+## References
+We obtain references in:
+https://github.com/codepath/android_guides/wiki/Endless-Scrolling-with-AdapterViews-and-RecyclerView
+
+We use the "CountryApi" for example of pagination web service, you can see this in:
+https://github.com/fabian7593/CountryAPI
+
 <br><br>
 
 ## Credits and Contributors
