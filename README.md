@@ -53,14 +53,12 @@ You can do a Endless scroll in ListView or RecyclerView with simple steps, witha
 * Apart from OpenSource, it's also free, and always will be.
 * You can get the source code and run the example, and use the code as necessary.
 
-<br>
-<br>
+<br><br>
 
 ### Donate
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L25MKCRPR7TWY)
 
-<br>
 <br><br>
 
 ## Getting Started
@@ -118,7 +116,7 @@ import github.frosquivel.infinitescroll.Model.InfiniteScrollBuilder;
 import github.frosquivel.infinitescroll.Model.InfiniteScrollObject;
 import github.frosquivel.infinitescroll.Interface.InfiniteScrollInterface;
 ```
-<br>
+<br><br>
 
 ### Starting
 To start with ScrollInfinite you need a simple ListView or RecyclerView.
@@ -140,7 +138,7 @@ For example, set this in activity_layout.xml like this:
 ```
 
 When you have the List view and your respective union in .java Activity, you need to set the listener of Infinite Scroll.
-<br>
+<br><br>
 
 ### InfiniteScrollObject new Instance
 For instance the InfiniteScrollListener, you need ALWAYS instance first the InfiniteScrollObject, because is a constructor parameter of InfiniteScrollListener.
@@ -159,7 +157,7 @@ InfiniteScrollObject infiniteScrollObject = new InfiniteScrollBuilder(activity)
                 .setMinimunNumberRowLoadingMore(5)
                 .build();
 ```
-<br>
+<br><br>
 
 ### Set the onScrollListener
 You need to instance InfiniteListOnScrollListener or InfiniteRecyclerOnScrollListener.
@@ -189,7 +187,7 @@ You need to send the recycler view, the activity and the infiniteScrollObject
             }
         });
 ```
-<br>
+<br><br>
 
 ### Set the InfiniteScrollInterface
 You need to set the InfiniteScrollInterface, for call the events of onSucess or onFailure.
@@ -227,7 +225,7 @@ Example:
             };
 
 ```
-<br>
+<br><br>
 
 ### Call the InfiniteScrollInterface
 When you call the library for request you web service, you can do use, OkHttp, Retrofit, Volley, Async task etc...
@@ -254,5 +252,57 @@ when this class obtain the new data of response or get a failure you can need to
                     });
 ```
 
+<br><br><br>
 
+# Footer Document
 
+## Internal documentation
+All the code has a internal documentation for more explanation of this example.
+
+<br><br>
+
+## Application that use InfiniteScroll
+Feel free to contact me to add yours apps to this list.
+
+<br><br>
+
+## Suggestions
+Infinite Scroll was created to make Android Devoloper's life easy. If you have any feedback please let us know in the issues by creating an issue with this format:
+ 
+ - Write what your feedback is about and add the next "tag" including the square brackets [FEEDBACK]
+
+Suggestions about how to improve the library or new features are welcome. Thanks for choosing us.
+<br><br>
+
+## Credits and Contributors
+
+**Author**
+### [Fabián Rosales - Frosquivel Developer](https://github.com/fabian7593) : 
+Infinite Scroll author...
+
+[![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/github-logo.png)](https://github.com/fabian7593)
+[![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/facebook.png)](https://www.facebook.com/fabian.rosales.509)
+[![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/linkedin.png)](https://www.linkedin.com/in/fabian-rosales-esquivel-698893106/)
+[![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/youtube.png)](https://www.youtube.com/channel/UCJnvvHb_vwMwbnZWplkHIfw)
+
+<br><br>
+
+## Contributors are welcome
+The goal for InfiniteScroll is to allow Android Developers care about what is important, features not getting worry about something that should be trivial such as do endless scroll. There are many features and other issues waiting. If you would like to contribute please reach to us, or maybe be bold! Getting a surprise pull request is very gratifying.
+<br><br><br>
+
+# License
+Copyright 2016 Fabian Rosales
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+<br><br>
