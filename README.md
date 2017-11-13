@@ -1,6 +1,7 @@
 [![alt tag](https://raw.githubusercontent.com/fabian7593/InfiniteScroll/master/InfiniteScrollApp/Images/logo.png)](https://github.com/fabian7593/InfiniteScroll)
 
-You can do a Endless scroll in ListView or RecyclerView with simple steps, witha  listener for do request to your web service.
+You can do a Endless scroll in ListView or RecyclerView with simple steps, with a listener for do request to your web service.
+
 <br>
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bbef86756e3541f49b6c1be714081137)](https://www.codacy.com/app/fabian7593/InfiniteScroll?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fabian7593/InfiniteScroll&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
@@ -40,6 +41,7 @@ You can do a Endless scroll in ListView or RecyclerView with simple steps, witha
 - [Credits and contributors](#credits-and-contributors) 
   - [Contributors are welcome](#contributors-are-welcome)
 - [References](#references) 
+- [CountryAPI RestApi](#countryapi-restapi) 
 - [Apache License](#license) 
 
 <br><br>
@@ -304,10 +306,11 @@ Suggestions about how to improve the library or new features are welcome. Thanks
 ## References
 We obtain references in:
 https://github.com/codepath/android_guides/wiki/Endless-Scrolling-with-AdapterViews-and-RecyclerView
+<br><br>
 
+## CountryAPI RestApi
 We use the "CountryApi" for example of pagination web service, you can see this in:
 https://github.com/fabian7593/CountryAPI
-
 <br><br>
 
 ## Credits and Contributors
