@@ -258,12 +258,10 @@ when this class obtain the new data of response or get a failure you can need to
 
 ## Internal documentation
 All the code has a internal documentation for more explanation of this example.
-
 <br><br>
 
 ## Application that use InfiniteScroll
 Feel free to contact me to add yours apps to this list.
-
 <br><br>
 
 ## Suggestions
@@ -284,7 +282,6 @@ Infinite Scroll author...
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/facebook.png)](https://www.facebook.com/fabian.rosales.509)
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/linkedin.png)](https://www.linkedin.com/in/fabian-rosales-esquivel-698893106/)
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/youtube.png)](https://www.youtube.com/channel/UCJnvvHb_vwMwbnZWplkHIfw)
-
 <br><br>
 
 ## Contributors are welcome
