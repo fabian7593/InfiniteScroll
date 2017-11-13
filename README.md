@@ -295,6 +295,7 @@ All the code has a internal documentation for more explanation of this example.
 
 ## Preview of Example
 Pay attention to how the scroll bar increases.
+
 The progress bar is not shown because the variable of MinimunNumberRowLoadingMore has a high value (5), to prevent the user from noticing when more data is loaded.
 <br>
 ![alt tag](https://raw.githubusercontent.com/fabian7593/InfiniteScroll/master/InfiniteScrollApp/Images/gif-infinitescroll.gif)
