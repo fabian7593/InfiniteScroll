@@ -37,6 +37,7 @@ You can do a Endless scroll in ListView or RecyclerView with simple steps, with 
 - - -
 - [Footer Document](#footer-document)
   - [Internal documentation](#internal-documentation)
+  - [Preview of Example](#preview-of-example)
   - [Application that use InfiniteScroll](#application-that-use-infinitescroll)
   - [Suggestions](#suggestions)
 - [Credits and contributors](#credits-and-contributors) 
@@ -290,6 +291,13 @@ https://github.com/fabian7593/CountryAPI
 
 ## Internal documentation
 All the code has a internal documentation for more explanation of this example.
+<br><br>
+
+## Preview of Example
+Pay attention to how the scroll bar increases.
+The progress bar is not shown because the variable of MinimunNumberRowLoadingMore has a high value (5), to prevent the user from noticing when more data is loaded.
+<br>
+![alt tag](https://raw.githubusercontent.com/fabian7593/InfiniteScroll/master/InfiniteScrollApp/Images/gif-infinitescroll.gif)
 <br><br>
 
 ## Application that use InfiniteScroll
