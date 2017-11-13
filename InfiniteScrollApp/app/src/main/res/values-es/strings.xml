@@ -28,8 +28,8 @@
     <string name="email_title">Comparte Infinite Scroll</string>
     <string name="email_text">Hola, somos los desarrolladores de la librería Infinite Scroll, \n\n Queremos compartir con usted esta librería, Infinite Scroll, para realizar llamadas a web service cuando sea necesario. \n\n Lee la documentación acá. \n XXXX1 \n\n Y descarga la aplicación aquí: \n XXXX2, \n\n Y si tienens la poibilidad de donar, estaremos muy agradecidos. \n</string>
     <string name="link_git">https://github.com/fabian7593/InifiniteScroll</string>
-    <string name="link_play_store">https://play.google.com/store/apps/details?id=frosquivel.com.infinitescrollapp</string>
-    <string name="link_play_store_payment">https://play.google.com/store/apps/details?id=frosquivel.com.infinitescrollpayapp</string>
+    <string name="link_play_store">https://play.google.com/store/apps/details?id=github.frosquivel.infinitescrollapp</string>
+    <string name="link_play_store_payment">https://play.google.com/store/apps/details?id=github.frosquivel.infinitescrollapp</string>
 
     <!-- shared preferences default-->
     <string name="shared_preference_minimun_number_row_loading">8</string>
