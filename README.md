@@ -3,6 +3,7 @@
 You can do a Endless scroll in ListView or RecyclerView with simple steps, with a listener for do request to your web service.
 
 <br>
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bbef86756e3541f49b6c1be714081137)](https://www.codacy.com/app/fabian7593/InfiniteScroll?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fabian7593/InfiniteScroll&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
