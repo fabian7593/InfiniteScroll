@@ -5,7 +5,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'InfiniteScroll'
 
-    publishedGroupId = 'frosquivel.com'
+    publishedGroupId = 'github.frosquivel'
     libraryName = 'infinitescroll'
     artifact = 'infinitescroll'
 
@@ -31,18 +31,20 @@ buildscript {
     }
     dependencies {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
     }
 }
 
 repositories {
     mavenCentral();
-
 }
 
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
+
+    lintOptions {
+        abortOnError false
+    }
 
     defaultConfig {
         minSdkVersion 14
@@ -50,12 +52,17 @@ android {
         versionCode 1
         versionName "1.0.0"
         multiDexEnabled true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
+    dexOptions
+            {
+                incremental false
+                javaMaxHeapSize "4g"
+                preDexLibraries = false
+            }//end dexOptions
+
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -63,14 +70,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     compile 'com.android.support:recyclerview-v7:26.1.0'
     compile 'com.android.support:appcompat-v7:26.1.0'
-    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:support-v4:20.0.+'
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-apply plugin: 'com.github.dcendents.android-maven'
+

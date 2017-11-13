@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="frosquivel.com.infinitescrollapp">
+    package="github.frosquivel.infinitescrollapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -30,7 +30,7 @@
             />
 
         <activity
-            android:name=".Activities.SplashScreenActivity"
+            android:name="github.frosquivel.infinitescrollapp.Activities.SplashScreenActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -41,52 +41,52 @@
         </activity>
 
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="github.frosquivel.infinitescrollapp.Activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".Activities.WebViewActivity"
+            android:name="github.frosquivel.infinitescrollapp.Activities.WebViewActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".Activities.SharedPreferenceActivity"
+            android:name="github.frosquivel.infinitescrollapp.Activities.SharedPreferenceActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".Activities.PaperOnboardingActivity"
+            android:name="github.frosquivel.infinitescrollapp.Activities.PaperOnboardingActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".Activities.AwarenessActivity"
+            android:name="github.frosquivel.infinitescrollapp.Activities.AwarenessActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".Activities.Base.BaseActivity">
+        <activity android:name="github.frosquivel.infinitescrollapp.Activities.Base.BaseActivity">
         </activity>
 
         <activity
-            android:name=".Activities.AboutActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
-        <activity
-            android:name=".Activities.CountryDetailActivity"
+            android:name="github.frosquivel.infinitescrollapp.Activities.AboutActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".Activities.GoogleMapsActivity"
+            android:name="github.frosquivel.infinitescrollapp.Activities.CountryDetailActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name="github.frosquivel.infinitescrollapp.Activities.GoogleMapsActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

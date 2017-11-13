@@ -5,17 +5,27 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "frosquivel.com.infinitescrollapp"
+        applicationId "github.frosquivel.infinitescrollapp"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+       // testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    dexOptions {
+        incremental = true
+        preDexLibraries = false
+        javaMaxHeapSize "4g" // 2g should be also OK
+    }
+    android {
+        lintOptions {
+            abortOnError false
+        }
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue "string", "google_maps_api_key", "AIzaSyA2pt5NSukeT5Bwi_R19w6x99yjsi5l3QM"
         }
@@ -26,6 +36,7 @@ android {
 }
 
 repositories {
+    jcenter()
     maven {
         url "http://dl.bintray.com/glomadrian/maven"
     }
@@ -39,7 +50,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':infinitescroll')
     compile 'com.android.support:appcompat-v7:26+'
     compile 'com.android.support:design:26+'
     compile 'com.android.support:recyclerview-v7:26+'
@@ -69,6 +79,8 @@ dependencies {
     compile 'me.bendik.simplerangeview:simplerangeview:0.1.1'
     compile 'com.github.travijuu:numberpicker:1.0.7'
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
+    compile 'github.frosquivel:infinitescroll:1.0.0'
+   // compile project(':infinitescroll')
     compile files('libs/svg-android.jar')
     testCompile 'junit:junit:4.12'
 }

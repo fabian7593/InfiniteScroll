@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        tools:context="frosquivel.com.infinitescrollapp.Activities.MainActivity"
+        tools:context="github.frosquivel.infinitescrollapp.Activities.MainActivity"
         android:background="@color/colorWhite">
         <ListView
             android:id="@+id/listView"
