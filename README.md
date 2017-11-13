@@ -306,6 +306,7 @@ Suggestions about how to improve the library or new features are welcome. Thanks
 
 ## References
 We obtain references in:
+
 https://github.com/codepath/android_guides/wiki/Endless-Scrolling-with-AdapterViews-and-RecyclerView
 <br><br>
 
